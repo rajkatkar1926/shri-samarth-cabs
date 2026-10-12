@@ -1,0 +1,26 @@
+Shri Smarath Cabs Website — Requirements
+
+Runtime
+- Node.js 18 or newer (Node.js 20 LTS recommended).
+- npm (use the included package-lock.json for reproducible installs).
+
+Install and run
+1. Extract this ZIP file.
+2. Open a terminal in the extracted project folder.
+3. Run: npm ci
+4. Run: npm run dev
+5. Open: http://localhost:3000
+
+Production build
+- Run: npm run build
+- Start the production server with: npm run start
+
+Technology
+- Next.js 14 App Router, React 18, TypeScript, Tailwind CSS 3
+- Framer Motion, GSAP with ScrollTrigger, and Lenis
+- Lucide React icons
+
+Project notes
+- Temple images are in public/temples/ and fleet images are in public/fleet/.
+- Keep those folders and their filenames intact when replacing media.
+- No environment variables are required to run the local preview.
