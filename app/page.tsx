@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import gsap from "gsap";
-import { ArrowDown, ArrowDownRight, ArrowRight, ArrowUpRight, CalendarDays, Check, ChevronDown, MapPin, Menu, Phone, Users, X } from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUpRight, Check, MapPin, Menu, Phone, X } from "lucide-react";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { ParallaxImage } from "@/components/motion/ParallaxImage";
 import { PathDraw } from "@/components/motion/PathDraw";
@@ -15,7 +15,6 @@ import { Button } from "@/components/ui/button";
 const phone = "+919763747437";
 const wa = `https://wa.me/919763747437?text=${encodeURIComponent("Hello, I'm planning a trip from Solapur.\nDestination:\nTravel date:\nPreferred car:\nPlease share route availability and a quote.")}`;
 const googleMapsRoute = (destination: string) => `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent("SPOT ON Nivant Lodge, Solapur")}&destination=${encodeURIComponent(destination)}&travelmode=driving`;
-const stops = ["Tuljapur", "Akkalkot", "Gangapur", "Pandharpur", "Full two-day circuit"];
 const dham = [
   { id: "tuljapur", number: "01", title: "Tulja Bhavani", local: "तुळजाभवानी", image: "/temples/tuljapur/2.png", imageAlt: "Tulja Bhavani murti adorned with flowers", location: "Tuljapur", distance: "44.9 km", mapsUrl: googleMapsRoute("Shri Tuljabhavani Temple, Tuljapur"), descriptor: "A pilgrimage stop on the Tuljapur + Pandharpur day trip." },
   { id: "akkalkot", number: "02", title: "Akkalkot", local: "अक्कलकोट", image: "/temples/akkalkot/4.png", imageAlt: "Shrine and murti image supplied for the Akkalkot pilgrimage stop", location: "Akkalkot", distance: "43.3 km", mapsUrl: googleMapsRoute("Shri Vatavruksha Swami Maharaj Devasthan, Akkalkot"), descriptor: "A pilgrimage stop on the Akkalkot + Gangapur day trip." },
@@ -79,9 +78,6 @@ function Header() {
 function Hero() {
   const letterRef = useScrollLetters();
   const heroRef = useRef<HTMLElement>(null);
-  const [destination, setDestination] = useState("");
-  const [travelDate, setTravelDate] = useState("");
-  const [travellers, setTravellers] = useState("1");
   const reduce = useReducedMotion();
   useEffect(() => {
     const image = heroRef.current?.querySelector(".hero-photo");
@@ -90,7 +86,6 @@ function Hero() {
     const tween = gsap.fromTo(image, { scale: 1 }, { scale: 1.12, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1 } });
     return () => { tween.scrollTrigger?.kill(); tween.kill(); };
   }, []);
-  const bookingUrl = `https://wa.me/919763747437?text=${encodeURIComponent(`Hello, I'm planning a trip from Solapur.\nDestination: ${destination || "Not chosen yet"}\nTravel date: ${travelDate || "Not chosen yet"}\nGroup size: ${travellers}\nPreferred car: \nPlease share route availability and a quote.`)}`;
   return <section className="hero" id="top" ref={heroRef}>
     <div className="hero-media">
       <Image className="hero-photo" src="/temples/main/5.PNG" alt="Pilgrimage route background image supplied for Shri Samarth Cabs" fill priority quality={92} sizes="100vw" />
@@ -101,12 +96,9 @@ function Hero() {
       <motion.p className="eyebrow hero-eyebrow" initial={reduce ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, delay: .35 }}>A quieter way to make the journey</motion.p>
       <motion.h1 initial={reduce ? false : { opacity: 0, y: 34 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .9, delay: .5, ease: [0.22, 1, .36, 1] }}>Pilgrimage travel<br /><em>from Solapur.</em></motion.h1>
       <motion.p className="hero-description" initial={reduce ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .85, duration: .7 }}>Driver-included car travel from Solapur. Share your destination and date; we’ll confirm the route and your quote.</motion.p>
-      <motion.div className="booking-card" initial={reduce ? false : { y: 44, opacity: 0, scale: .98 }} animate={{ y: 0, opacity: 1, scale: 1 }} transition={{ type: "spring", stiffness: 90, damping: 18, delay: 1.05 }}>
-        <label className="booking-field"><span><MapPin size={14} /> From</span><input aria-label="Pickup city" value="Solapur" readOnly /></label>
-        <label className="booking-field"><span><ArrowDownRight size={14} /> To</span><span className="select-wrap"><select aria-label="Choose destination" value={destination} onChange={(e) => setDestination(e.target.value)}><option value="">Choose destination</option>{stops.map((stop) => <option key={stop}>{stop}</option>)}</select><ChevronDown size={15} /></span></label>
-        <label className="booking-field"><span><CalendarDays size={14} /> Date</span><input aria-label="Travel date" type="date" value={travelDate} onChange={(e) => setTravelDate(e.target.value)} /></label>
-        <label className="booking-field people-field"><span><Users size={14} /> People</span><input aria-label="Number of travellers" type="number" min="1" inputMode="numeric" value={travellers} onChange={(e) => setTravellers(e.target.value)} /></label>
-        <a className="booking-submit" href={bookingUrl} target="_blank" rel="noopener">Get a trip quote <ArrowUpRight size={16} /></a>
+      <motion.div className="hero-actions" initial={reduce ? false : { y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ type: "spring", stiffness: 90, damping: 18, delay: 1.05 }}>
+        <a className="booking-submit hero-cta" href={wa} target="_blank" rel="noopener">WhatsApp for a trip quote <ArrowUpRight size={16} /></a>
+        <a className="hero-call" href={`tel:${phone}`}><Phone size={16} /> Call +91 97637 47437</a>
       </motion.div>
       <div className="hero-trust"><span><Check size={14} /> Driver included</span><span><Check size={14} /> Call or WhatsApp</span><span><Check size={14} /> Quote confirmed directly</span></div>
     </div>
@@ -181,9 +173,9 @@ function Fleet() {
 }
 
 const reviews = [
-  { quote: "Our outstation family trip was perfectly arranged. Budget-friendly rates and on-time pickup made the journey stress-free. Definitely recommending to others!", name: "Riya Thakur" },
-  { quote: "We booked for a corporate team outing. Excellent service with great comfort and professional driving. Everyone appreciated the smooth travel experience.", name: "Kunal Patil" },
-  { quote: "Affordable pricing and top-quality service. The driver had good route knowledge, which saved us time. Will surely travel again with you!", name: "Harish Chavan" },
+  { quote: "Our outstation family trip was perfectly arranged. Budget-friendly rates and on-time pickup made the journey stress-free. Definitely recommending to others!", name: "Riya T." },
+  { quote: "We booked for a corporate team outing. Excellent service with great comfort and professional driving. Everyone appreciated the smooth travel experience.", name: "Kunal P." },
+  { quote: "Affordable pricing and top-quality service. The driver had good route knowledge, which saved us time. Will surely travel again with you!", name: "Harish C." },
 ];
 function Testimonials() {
   return <section className="reviews-section"><div className="review-wave" aria-hidden="true"><svg viewBox="0 0 1440 160" preserveAspectRatio="none"><path d="M0 60 C210 150 300 20 520 65 S830 155 1060 62 S1300 30 1440 90 V160 H0Z"/><path d="M0 95 C190 10 360 150 560 94 S860 15 1070 98 S1280 120 1440 48 V160 H0Z"/></svg></div><div className="reviews-inner"><Reveal><div className="review-heading"><p className="eyebrow">Words from the road</p><h2>Shared by travellers.</h2><p>Customer testimonials from our earlier website.</p></div></Reveal><div className="review-marquee" aria-label="Customer testimonials"><div className="review-track">{[...reviews, ...reviews].map((review, i) => <figure className="review-card" key={`${review.name}-${i}`}><span className="review-quote-mark">“</span><blockquote>{review.quote}</blockquote><figcaption><span>{review.name}</span><small>Customer testimonial</small></figcaption></figure>)}</div></div></div></section>;
