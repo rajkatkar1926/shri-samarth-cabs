@@ -31,24 +31,18 @@ const fleet = [
 
 function Header() {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("tuljapur");
   const [scrolled, setScrolled] = useState(false);
-  const links = [{ href: "#tuljapur", label: "Tuljapur" }, { href: "#akkalkot", label: "Akkalkot" }, { href: "#gangapur", label: "Gangapur" }, { href: "#pandharpur", label: "Pandharpur" }];
+  const links = [{ href: "/solapur-to-tuljapur-taxi", label: "Tuljapur" }, { href: "/solapur-to-akkalkot-taxi", label: "Akkalkot" }, { href: "/solapur-to-gangapur-taxi", label: "Gangapur" }, { href: "/solapur-to-pandharpur-taxi", label: "Pandharpur" }];
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 32);
     window.addEventListener("scroll", update, { passive: true });
-    const observer = new IntersectionObserver((entries) => {
-      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (visible?.target.id) setActive(visible.target.id);
-    }, { rootMargin: "-28% 0px -58% 0px", threshold: [0, .15, .5] });
-    links.forEach(({ href }) => { const section = document.querySelector(href); if (section) observer.observe(section); });
-    return () => { window.removeEventListener("scroll", update); observer.disconnect(); };
+    return () => window.removeEventListener("scroll", update);
   }, []);
   return <>
     <div className="scroll-progress" data-scroll-progress />
     <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
       <a className="brand" href="#top" aria-label="Shri Samarth Cabs home"><span className="brand-seal"><Image src="/brand/logo-mark.webp" alt="Shri Samarth Cabs logo: Swami Samarth" width={48} height={48} /></span><span>Shri Samarth <b>Cabs</b><small>Solapur · Maharashtra</small></span></a>
-      <nav className="desktop-nav" aria-label="Main navigation">{links.map((link) => <a key={link.href} href={link.href} className={active === link.href.slice(1) ? "is-active" : ""} aria-current={active === link.href.slice(1) ? "location" : undefined}>{link.label}<i /></a>)}</nav>
+      <nav className="desktop-nav" aria-label="Main navigation">{links.map((link) => <a key={link.href} href={link.href}>{link.label}<i /></a>)}</nav>
       <div className="nav-actions"><a className="nav-call" href={`tel:${phone}`} aria-label="Call Shri Samarth Cabs"><Phone size={15} /> <span>Call</span></a><MagneticButton className="nav-whatsapp" href={wa} target="_blank" rel="noopener">WhatsApp <ArrowUpRight size={15} /></MagneticButton></div>
       <Button variant="outline" className="menu-toggle" onClick={() => setOpen(!open)} aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open}>{open ? <X /> : <Menu />}</Button>
     </header>
@@ -108,7 +102,7 @@ function Circuit() {
   return <section className="circuit-section" id="circuit">
     <div className="section-kicker"><span>THE SOLAPUR CIRCUIT</span><span>04 DESTINATIONS · 01 HOME BASE</span></div>
     <Reveal className="circuit-head"><p className="eyebrow">Choose your darshan</p><h2>One home base.<br /><em>Four sacred stops.</em></h2><p className="circuit-intro">Shri Samarth Cabs is based in Solapur and offers car hire with a driver for customer-chosen trips. Pick a destination below, or combine them into one journey.</p></Reveal>
-    <div className="dham-grid">{dham.map((item) => <Reveal key={item.id}><a className="dham-card" href={`#${item.id}`} onMouseMove={(e) => { const box = e.currentTarget.getBoundingClientRect(); e.currentTarget.style.setProperty("--mx", `${e.clientX - box.left}px`); e.currentTarget.style.setProperty("--my", `${e.clientY - box.top}px`); }}>
+    <div className="dham-grid">{dham.map((item) => <Reveal key={item.id}><a className="dham-card" href={`/solapur-to-${item.id}-taxi`} onMouseMove={(e) => { const box = e.currentTarget.getBoundingClientRect(); e.currentTarget.style.setProperty("--mx", `${e.clientX - box.left}px`); e.currentTarget.style.setProperty("--my", `${e.clientY - box.top}px`); }}>
       <Image src={`/cards/${item.id}.webp?v=2`} alt={cardAlt[item.id]} fill sizes="(max-width: 760px) 90vw, (max-width: 1100px) 45vw, 24vw" quality={85} />
       <span className="dham-glow" />
       <span className="dham-shade" />
@@ -137,7 +131,7 @@ function TempleStory({ item }: { item: typeof dham[number] }) {
       <div className="temple-still-frame" ref={imageReveal}><ParallaxImage src={item.image} alt={item.imageAlt} className="temple-still-image" sizes="(max-width: 768px) 100vw, 70vw" quality={92} /></div>
       <div className="temple-overlay" />
     </div>
-    <div className="temple-story-inner"><div className="temple-index">{item.number} <span>/ PILGRIMAGE STOP</span></div><div className="temple-story-copy"><p className="eyebrow">SOLAPUR · {item.number} OF 04</p><p className="temple-local">{item.local}</p><h2>{item.title}</h2><p>{item.descriptor}</p><div className="temple-facts"><a href={item.mapsUrl} target="_blank" rel="noopener noreferrer" aria-label={`Open Google Maps driving route from Solapur to ${item.location}`}><MapPin size={15} /> Distance from Solapur <b>{item.distance} · Google Maps</b><ArrowUpRight size={13} /></a></div><a href={`${wa}%0ADestination%3A%20${encodeURIComponent(item.location)}`} className="text-link" target="_blank" rel="noopener">Ask about this destination <ArrowUpRight size={16} /></a></div></div>
+    <div className="temple-story-inner"><div className="temple-index">{item.number} <span>/ PILGRIMAGE STOP</span></div><div className="temple-story-copy"><p className="eyebrow">SOLAPUR · {item.number} OF 04</p><p className="temple-local">{item.local}</p><h2>{item.title}</h2><p>{item.descriptor}</p><div className="temple-facts"><a href={item.mapsUrl} target="_blank" rel="noopener noreferrer" aria-label={`Open Google Maps driving route from Solapur to ${item.location}`}><MapPin size={15} /> Distance from Solapur <b>{item.distance} · Google Maps</b><ArrowUpRight size={13} /></a></div><a href={`${wa}%0ADestination%3A%20${encodeURIComponent(item.location)}`} className="text-link" target="_blank" rel="noopener">Ask about this destination <ArrowUpRight size={16} /></a><a href={`/solapur-to-${item.id}-taxi`} className="text-link">Solapur to {item.id.charAt(0).toUpperCase() + item.id.slice(1)} taxi details <ArrowUpRight size={16} /></a></div></div>
   </ScrollPin>;
 }
 
@@ -198,7 +192,7 @@ function MobileContactBar() {
 }
 
 function Footer() {
-  return <footer className="footer" id="contact"><div className="footer-silhouette" aria-hidden="true"><span className="temple-tower tower-a"/><span className="temple-tower tower-b"/><span className="temple-dome"/></div><div className="footer-content"><Reveal><p className="eyebrow">Your next journey starts here</p><h2>Chala, Darshan<br /><em>Karuya?</em></h2><p>Share your destination and travel date. Call or WhatsApp Shri Samarth Cabs to discuss route availability and get a quote.</p><div className="footer-actions"><MagneticButton className="footer-cta" href={wa} target="_blank" rel="noopener">WhatsApp to plan your trip <ArrowUpRight size={18} /></MagneticButton><a className="footer-call" href={`tel:${phone}`}><Phone size={16} /> +91 97637 47437</a></div></Reveal></div><div className="footer-base"><a className="brand footer-brand" href="#top"><span className="brand-seal"><Image src="/brand/logo-mark.webp" alt="" aria-hidden="true" width={48} height={48} /></span><span>Shri Samarth <b>Cabs</b><small>Solapur · Maharashtra</small></span></a><span>Driver-included car travel from Solapur</span><a href="mailto:Swamicabs48@gmail.com">Swamicabs48@gmail.com</a><span>© 2026 Shri Samarth Cabs</span></div></footer>;
+  return <footer className="footer" id="contact"><div className="footer-silhouette" aria-hidden="true"><span className="temple-tower tower-a"/><span className="temple-tower tower-b"/><span className="temple-dome"/></div><div className="footer-content"><Reveal><p className="eyebrow">Your next journey starts here</p><h2>Chala, Darshan<br /><em>Karuya?</em></h2><p>Share your destination and travel date. Call or WhatsApp Shri Samarth Cabs to discuss route availability and get a quote.</p><div className="footer-actions"><MagneticButton className="footer-cta" href={wa} target="_blank" rel="noopener">WhatsApp to plan your trip <ArrowUpRight size={18} /></MagneticButton><a className="footer-call" href={`tel:${phone}`}><Phone size={16} /> +91 97637 47437</a></div></Reveal></div><nav className="footer-links" aria-label="Footer"><a href="/solapur-to-tuljapur-taxi">Solapur to Tuljapur</a><a href="/solapur-to-akkalkot-taxi">Solapur to Akkalkot</a><a href="/solapur-to-pandharpur-taxi">Solapur to Pandharpur</a><a href="/solapur-to-gangapur-taxi">Solapur to Gangapur</a></nav><div className="footer-base"><a className="brand footer-brand" href="#top"><span className="brand-seal"><Image src="/brand/logo-mark.webp" alt="" aria-hidden="true" width={48} height={48} /></span><span>Shri Samarth <b>Cabs</b><small>Solapur · Maharashtra</small></span></a><span>Driver-included car travel from Solapur</span><a href="mailto:Swamicabs48@gmail.com">Swamicabs48@gmail.com</a><span>© 2026 Shri Samarth Cabs</span></div></footer>;
 }
 
 export default function Home() {
