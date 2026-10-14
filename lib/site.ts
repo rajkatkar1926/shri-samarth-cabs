@@ -17,4 +17,8 @@ export const SITE_PAGES: SitePage[] = [
   { href: "/solapur-to-akkalkot-taxi", label: "Solapur to Akkalkot", group: "Routes" },
   { href: "/solapur-to-pandharpur-taxi", label: "Solapur to Pandharpur", group: "Routes" },
   { href: "/solapur-to-gangapur-taxi", label: "Solapur to Gangapur", group: "Routes" },
+  { href: "/packages/akkalkot-gangapur-one-day", label: "Akkalkot and Gangapur, 1 day", group: "Trips" },
+  { href: "/packages/tuljapur-pandharpur-one-day", label: "Tuljapur and Pandharpur, 1 day", group: "Trips" },
+  { href: "/packages/four-temple-two-day-circuit", label: "Four-temple circuit, 2 days", group: "Trips" },
+  { href: "/cars", label: "Our cars", group: "Company" },
 ];
