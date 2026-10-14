@@ -21,4 +21,9 @@ export const SITE_PAGES: SitePage[] = [
   { href: "/packages/tuljapur-pandharpur-one-day", label: "Tuljapur and Pandharpur, 1 day", group: "Trips" },
   { href: "/packages/four-temple-two-day-circuit", label: "Four-temple circuit, 2 days", group: "Trips" },
   { href: "/cars", label: "Our cars", group: "Company" },
+  { href: "/about", label: "About us", group: "Company" },
+  { href: "/contact", label: "Contact", group: "Company" },
+  { href: "/faq", label: "FAQ", group: "Company" },
+  { href: "/guides/solapur-temple-trip-planning", label: "How to plan a temple trip", group: "Guides" },
+  { href: "/guides/which-car-for-your-group", label: "Which car for your group", group: "Guides" },
 ];
