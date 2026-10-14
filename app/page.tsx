@@ -7,7 +7,6 @@ import gsap from "gsap";
 import { ArrowDown, ArrowRight, ArrowUpRight, Check, MapPin, Menu, Phone, X } from "lucide-react";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { ParallaxImage } from "@/components/motion/ParallaxImage";
-import { PathDraw } from "@/components/motion/PathDraw";
 import { Reveal } from "@/components/motion/Reveal";
 import { ScrollPin } from "@/components/motion/ScrollPin";
 import { Button } from "@/components/ui/button";
@@ -27,26 +26,6 @@ const fleet = [
   { name: "Toyota Innova Crysta", file: "/fleet/Innova_crysta.jpeg", alt: "Toyota Innova Crysta car photo supplied for the fleet" },
   { name: "Cruiser", file: "/fleet/Cruiser.jpeg", alt: "Cruiser vehicle photo supplied for the fleet" },
 ];
-
-function useScrollLetters() {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const element = ref.current;
-    if (!element || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let frame = 0;
-    const update = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        const distance = Math.min(window.scrollY * 0.16, 180);
-        element.style.setProperty("--hero-shift", `${distance}px`);
-      });
-    };
-    window.addEventListener("scroll", update, { passive: true });
-    update();
-    return () => { cancelAnimationFrame(frame); window.removeEventListener("scroll", update); };
-  }, []);
-  return ref;
-}
 
 function Header() {
   const [open, setOpen] = useState(false);
@@ -76,7 +55,6 @@ function Header() {
 }
 
 function Hero() {
-  const letterRef = useScrollLetters();
   const heroRef = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
   useEffect(() => {
@@ -91,7 +69,6 @@ function Hero() {
       <Image className="hero-photo" src="/temples/main/5.PNG" alt="Pilgrimage route background image supplied for Shri Samarth Cabs" fill priority quality={92} sizes="100vw" />
       <div className="hero-shade" />
     </div>
-    <div ref={letterRef} className="hero-outline" aria-hidden="true"><span className="outline-left">SOLAPUR</span><span className="outline-right">FOUR STOPS</span></div>
     <div className="hero-content">
       <motion.p className="eyebrow hero-eyebrow" initial={reduce ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, delay: .35 }}>A quieter way to make the journey</motion.p>
       <motion.h1 initial={reduce ? false : { opacity: 0, y: 34 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .9, delay: .5, ease: [0.22, 1, .36, 1] }}>Pilgrimage travel<br /><em>from Solapur.</em></motion.h1>
@@ -115,12 +92,14 @@ function Circuit() {
   ];
   return <section className="circuit-section" id="circuit">
     <div className="section-kicker"><span>THE SOLAPUR CIRCUIT</span><span>04 DESTINATIONS · 01 HOME BASE</span></div>
-    <div className="circuit-layout">
-      <div className="circuit-map-wrap"><PathDraw /><div className="map-legend"><span className="legend-dot" />Illustrative route diagram <small>Route sequence and availability confirmed directly</small></div></div>
-      <div className="circuit-copy"><Reveal><p className="eyebrow">The map is only the beginning</p><h2>One home base.<br /><em>Many meaningful stops.</em></h2><p className="circuit-intro">Shri Samarth Cabs is based in Solapur and offers car hire with a driver for customer-chosen trips. Pilgrimage circuits are one way to travel.</p></Reveal>
-        <div className="circuit-options">{cards.map((card) => <Reveal key={card.n}><article className="circuit-option"><span className="option-no">{card.n}</span><div><span className="option-tag">{card.tag}</span><h3>{card.name}</h3><p>{card.text}</p></div><ArrowUpRight className="option-arrow" size={17} /></article></Reveal>)}</div>
-      </div>
-    </div>
+    <Reveal className="circuit-head"><p className="eyebrow">Choose your darshan</p><h2>One home base.<br /><em>Four sacred stops.</em></h2><p className="circuit-intro">Shri Samarth Cabs is based in Solapur and offers car hire with a driver for customer-chosen trips. Pick a destination below, or combine them into one journey.</p></Reveal>
+    <div className="dham-grid">{dham.map((item) => <Reveal key={item.id}><a className="dham-card" href={`#${item.id}`}>
+      <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 760px) 90vw, (max-width: 1100px) 45vw, 24vw" quality={85} />
+      <span className="dham-shade" />
+      <span className="dham-no">{item.number}</span>
+      <span className="dham-info"><span className="dham-local">{item.local}</span><strong>{item.title}</strong><small><MapPin size={12} /> {item.distance} from Solapur</small></span>
+    </a></Reveal>)}</div>
+    <div className="circuit-options">{cards.map((card) => <Reveal key={card.n}><article className="circuit-option"><span className="option-no">{card.n}</span><div><span className="option-tag">{card.tag}</span><h3>{card.name}</h3><p>{card.text}</p></div><ArrowUpRight className="option-arrow" size={17} /></article></Reveal>)}</div>
   </section>;
 }
 
