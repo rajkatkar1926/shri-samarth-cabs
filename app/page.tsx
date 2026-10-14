@@ -8,6 +8,7 @@ import { ArrowDown, ArrowRight, ArrowUpRight, Check, MapPin, Menu, Phone, X } fr
 import { GoldDust } from "@/components/motion/GoldDust";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { ParallaxImage } from "@/components/motion/ParallaxImage";
+import { routes } from "@/lib/routes";
 import { Reveal } from "@/components/motion/Reveal";
 import { ScrollPin } from "@/components/motion/ScrollPin";
 import { Button } from "@/components/ui/button";
@@ -21,7 +22,7 @@ const dham = [
   { id: "gangapur", number: "03", title: "Gangapur", local: "गाणगापूर", image: "/temples/gangapur/datta.webp", imageAlt: "Shri Dattatreya seated with his cow and dog, the deity of Gangapur", location: "Ganagapur Dattatreya Temple", distance: "110 km", mapsUrl: googleMapsRoute("Ganagapur Dattatreya Temple Sri Kshetra Ganagapur, Deval Ganagapur, Afzalpur Taluk, Karnataka"), descriptor: "A pilgrimage stop on the Akkalkot + Gangapur day trip." },
   { id: "pandharpur", number: "04", title: "Pandharpur", local: "पंढरपूर", image: "/temples/pandharpur/5.webp", imageAlt: "Vitthal murti in the Pandharpur temple", location: "Pandharpur", distance: "69.2 km", mapsUrl: googleMapsRoute("Shree Vitthal Rukmini Temple, Pandharpur"), descriptor: "A pilgrimage stop on the Tuljapur + Pandharpur day trip." },
 ];
-const cardAlt: Record<string, string> = { tuljapur: "Painting of Tulja Bhavani of Tuljapur", akkalkot: "Painting of Swami Samarth of Akkalkot", gangapur: "Painting of Shri Dattatreya of Gangapur with his cow and dog", pandharpur: "Painting of Vitthal of Pandharpur" };
+const cardAlt: Record<string, string> = { tuljapur: "Tulja Bhavani murti decorated with flowers at Tuljapur", akkalkot: "Swami Samarth murti with a red turban at Akkalkot", gangapur: "Temple tower at Gangapur with an orange Dattatreya banner against a blue sky", pandharpur: "Vitthal murti with a lotus garland at Pandharpur" };
 const fleet = [
   { name: "Swift Dzire", file: "/fleet/Swift_Dzire.webp", alt: "Swift Dzire sedan available with a driver from Solapur" },
   { name: "Ertiga", file: "/fleet/Ertiga.webp", alt: "Maruti Ertiga seven-seater available with a driver from Solapur" },
@@ -103,7 +104,7 @@ function Circuit() {
     <div className="section-kicker"><span>THE SOLAPUR CIRCUIT</span><span>04 DESTINATIONS · 01 HOME BASE</span></div>
     <Reveal className="circuit-head"><p className="eyebrow">Choose your darshan</p><h2>One home base.<br /><em>Four sacred stops.</em></h2><p className="circuit-intro">Shri Samarth Cabs is based in Solapur and offers car hire with a driver for customer-chosen trips. Pick a destination below, or combine them into one journey.</p></Reveal>
     <div className="dham-grid">{dham.map((item) => <Reveal key={item.id}><a className="dham-card" href={`/solapur-to-${item.id}-taxi`} onMouseMove={(e) => { const box = e.currentTarget.getBoundingClientRect(); e.currentTarget.style.setProperty("--mx", `${e.clientX - box.left}px`); e.currentTarget.style.setProperty("--my", `${e.clientY - box.top}px`); }}>
-      <Image src={`/cards/${item.id}.webp?v=2`} alt={cardAlt[item.id]} fill sizes="(max-width: 760px) 90vw, (max-width: 1100px) 45vw, 24vw" quality={85} />
+      <Image src={`/cards/t-${item.id}.webp?v=3`} alt={cardAlt[item.id]} fill sizes="(max-width: 760px) 90vw, (max-width: 1100px) 45vw, 24vw" quality={85} />
       <span className="dham-glow" />
       <span className="dham-shade" />
       <span className="dham-no">{item.number}</span>
@@ -131,7 +132,7 @@ function TempleStory({ item }: { item: typeof dham[number] }) {
       <div className="temple-still-frame" ref={imageReveal}><ParallaxImage src={item.image} alt={item.imageAlt} className="temple-still-image" sizes="(max-width: 768px) 100vw, 70vw" quality={92} /></div>
       <div className="temple-overlay" />
     </div>
-    <div className="temple-story-inner"><div className="temple-index">{item.number} <span>/ PILGRIMAGE STOP</span></div><div className="temple-story-copy"><p className="eyebrow">SOLAPUR · {item.number} OF 04</p><p className="temple-local">{item.local}</p><h2>{item.title}</h2><p>{item.descriptor}</p><div className="temple-facts"><a href={item.mapsUrl} target="_blank" rel="noopener noreferrer" aria-label={`Open Google Maps driving route from Solapur to ${item.location}`}><MapPin size={15} /> Distance from Solapur <b>{item.distance} · Google Maps</b><ArrowUpRight size={13} /></a></div><a href={`${wa}%0ADestination%3A%20${encodeURIComponent(item.location)}`} className="text-link" target="_blank" rel="noopener">Ask about this destination <ArrowUpRight size={16} /></a><a href={`/solapur-to-${item.id}-taxi`} className="text-link">Solapur to {item.id.charAt(0).toUpperCase() + item.id.slice(1)} taxi details <ArrowUpRight size={16} /></a></div></div>
+    <div className="temple-story-inner"><div className="temple-index">{item.number} <span>/ PILGRIMAGE STOP</span></div><div className="temple-story-copy"><p className="eyebrow">SOLAPUR · {item.number} OF 04</p><p className="temple-local">{item.local}</p><h2>{item.title}</h2><p>{item.descriptor}</p><p className="temple-matters">{routes.find((r) => r.id === item.id)?.matters[0].split(". ")[0]}.</p><p className="temple-nearby">{routes.find((r) => r.id === item.id)?.nearby}</p><div className="temple-facts"><a href={item.mapsUrl} target="_blank" rel="noopener noreferrer" aria-label={`Open Google Maps driving route from Solapur to ${item.location}`}><MapPin size={15} /> Distance from Solapur <b>{item.distance} · Google Maps</b><ArrowUpRight size={13} /></a></div><a href={`${wa}%0ADestination%3A%20${encodeURIComponent(item.location)}`} className="text-link" target="_blank" rel="noopener">Ask about this destination <ArrowUpRight size={16} /></a><a href={`/solapur-to-${item.id}-taxi`} className="text-link">Solapur to {item.id.charAt(0).toUpperCase() + item.id.slice(1)} taxi details <ArrowUpRight size={16} /></a></div></div>
   </ScrollPin>;
 }
 

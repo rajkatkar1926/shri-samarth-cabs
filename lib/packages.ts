@@ -25,8 +25,8 @@ export const packages: PackageInfo[] = [
     description: "One-day Akkalkot and Gangapur trip from Solapur with a driver-included car. Call or WhatsApp Shri Samarth Cabs for the plan and quote.",
     h1: "Akkalkot and Gangapur one-day trip from Solapur",
     images: [
-      { src: "/cards/akkalkot.webp?v=2", alt: "Painting of Swami Samarth of Akkalkot", w: 512, h: 768 },
-      { src: "/cards/gangapur.webp?v=2", alt: "Painting of Shri Dattatreya of Gangapur with his cow and dog", w: 512, h: 768 },
+      { src: "/cards/t-akkalkot.webp?v=3", alt: "Swami Samarth murti with a red turban at Akkalkot", w: 640, h: 896 },
+      { src: "/cards/t-gangapur.webp?v=3", alt: "Temple tower at Gangapur with an orange Dattatreya banner against a blue sky", w: 640, h: 896 },
     ],
     intro: "This is a one-day pilgrimage trip from Solapur that visits Akkalkot, the town of Swami Samarth, and Gangapur, the Dattatreya temple across the state border in Karnataka. It runs in a driver-included car from your pickup point in Solapur. We confirm the plan and the quote directly when you call or WhatsApp us.",
     stops: [
@@ -64,8 +64,8 @@ export const packages: PackageInfo[] = [
     description: "One-day Tuljapur and Pandharpur trip from Solapur with a driver-included car. Call or WhatsApp Shri Samarth Cabs for your quote.",
     h1: "Tuljapur and Pandharpur one-day trip from Solapur",
     images: [
-      { src: "/cards/tuljapur.webp?v=2", alt: "Painting of Tulja Bhavani of Tuljapur", w: 512, h: 768 },
-      { src: "/cards/pandharpur.webp?v=2", alt: "Painting of Vitthal of Pandharpur", w: 512, h: 768 },
+      { src: "/cards/t-tuljapur.webp?v=3", alt: "Tulja Bhavani murti decorated with flowers at Tuljapur", w: 640, h: 896 },
+      { src: "/cards/t-pandharpur.webp?v=3", alt: "Vitthal murti with a lotus garland at Pandharpur", w: 640, h: 896 },
     ],
     intro: "This one-day trip from Solapur takes you to Tuljapur for Tulja Bhavani darshan and to Pandharpur for the Vitthal Rukmini temple. It is a driver-included car trip from your pickup point in Solapur, and we confirm the plan and quote directly when you contact us.",
     stops: [

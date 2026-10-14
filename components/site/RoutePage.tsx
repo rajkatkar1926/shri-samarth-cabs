@@ -22,13 +22,17 @@ export function RoutePage({ route }: { route: RouteInfo }) {
           <Cta extra={`Destination: ${route.place}`} />
         </div>
         <div className="pg-hero-image">
-          <Image src={route.image} alt={route.imageAlt} width={512} height={768} priority />
+          <Image src={route.image} alt={route.imageAlt} width={640} height={896} priority />
         </div>
       </section>
 
       <article className="pg-body">
         <h2>The trip from Solapur to {route.place}</h2>
         {route.trip.map((p) => <p key={p}>{p}</p>)}
+
+        <h2>Why {route.place} matters to pilgrims</h2>
+        {route.matters.map((p) => <p key={p}>{p}</p>)}
+        <p className="pg-nearby">{route.nearby}</p>
 
         <h2>{route.templeName} in brief</h2>
         {route.temple.map((p) => <p key={p}>{p}</p>)}
