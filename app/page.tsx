@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import gsap from "gsap";
 import { ArrowDown, ArrowRight, ArrowUpRight, Check, MapPin, Menu, Phone, X } from "lucide-react";
+import { GoldDust } from "@/components/motion/GoldDust";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { ParallaxImage } from "@/components/motion/ParallaxImage";
 import { Reveal } from "@/components/motion/Reveal";
@@ -15,10 +16,10 @@ const phone = "+919763747437";
 const wa = `https://wa.me/919763747437?text=${encodeURIComponent("Hello, I'm planning a trip from Solapur.\nDestination:\nTravel date:\nPreferred car:\nPlease share route availability and a quote.")}`;
 const googleMapsRoute = (destination: string) => `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent("SPOT ON Nivant Lodge, Solapur")}&destination=${encodeURIComponent(destination)}&travelmode=driving`;
 const dham = [
-  { id: "tuljapur", number: "01", title: "Tulja Bhavani", local: "तुळजाभवानी", image: "/temples/tuljapur/2.png", imageAlt: "Tulja Bhavani murti adorned with flowers", location: "Tuljapur", distance: "44.9 km", mapsUrl: googleMapsRoute("Shri Tuljabhavani Temple, Tuljapur"), descriptor: "A pilgrimage stop on the Tuljapur + Pandharpur day trip." },
-  { id: "akkalkot", number: "02", title: "Akkalkot", local: "अक्कलकोट", image: "/temples/akkalkot/4.png", imageAlt: "Shrine and murti image supplied for the Akkalkot pilgrimage stop", location: "Akkalkot", distance: "43.3 km", mapsUrl: googleMapsRoute("Shri Vatavruksha Swami Maharaj Devasthan, Akkalkot"), descriptor: "A pilgrimage stop on the Akkalkot + Gangapur day trip." },
-  { id: "gangapur", number: "03", title: "Gangapur", local: "गाणगापूर", image: "/temples/gangapur/6.png", imageAlt: "Temple tower image supplied for the Gangapur pilgrimage stop", location: "Ganagapur Dattatreya Temple", distance: "110 km", mapsUrl: googleMapsRoute("Ganagapur Dattatreya Temple Sri Kshetra Ganagapur, Deval Ganagapur, Afzalpur Taluk, Karnataka"), descriptor: "A pilgrimage stop on the Akkalkot + Gangapur day trip." },
-  { id: "pandharpur", number: "04", title: "Pandharpur", local: "पंढरपूर", image: "/temples/pandharpur/5.jpeg", imageAlt: "Vitthal murti in the Pandharpur temple", location: "Pandharpur", distance: "69.2 km", mapsUrl: googleMapsRoute("Shree Vitthal Rukmini Temple, Pandharpur"), descriptor: "A pilgrimage stop on the Tuljapur + Pandharpur day trip." },
+  { id: "tuljapur", number: "01", title: "Tulja Bhavani", local: "तुळजाभवानी", image: "/temples/tuljapur/2.webp", imageAlt: "Tulja Bhavani murti adorned with flowers", location: "Tuljapur", distance: "44.9 km", mapsUrl: googleMapsRoute("Shri Tuljabhavani Temple, Tuljapur"), descriptor: "A pilgrimage stop on the Tuljapur + Pandharpur day trip." },
+  { id: "akkalkot", number: "02", title: "Akkalkot", local: "अक्कलकोट", image: "/temples/akkalkot/4.webp", imageAlt: "Shrine and murti image supplied for the Akkalkot pilgrimage stop", location: "Akkalkot", distance: "43.3 km", mapsUrl: googleMapsRoute("Shri Vatavruksha Swami Maharaj Devasthan, Akkalkot"), descriptor: "A pilgrimage stop on the Akkalkot + Gangapur day trip." },
+  { id: "gangapur", number: "03", title: "Gangapur", local: "गाणगापूर", image: "/temples/gangapur/6.webp", imageAlt: "Temple tower image supplied for the Gangapur pilgrimage stop", location: "Ganagapur Dattatreya Temple", distance: "110 km", mapsUrl: googleMapsRoute("Ganagapur Dattatreya Temple Sri Kshetra Ganagapur, Deval Ganagapur, Afzalpur Taluk, Karnataka"), descriptor: "A pilgrimage stop on the Akkalkot + Gangapur day trip." },
+  { id: "pandharpur", number: "04", title: "Pandharpur", local: "पंढरपूर", image: "/temples/pandharpur/5.webp", imageAlt: "Vitthal murti in the Pandharpur temple", location: "Pandharpur", distance: "69.2 km", mapsUrl: googleMapsRoute("Shree Vitthal Rukmini Temple, Pandharpur"), descriptor: "A pilgrimage stop on the Tuljapur + Pandharpur day trip." },
 ];
 const fleet = [
   { name: "Swift Dzire", file: "/fleet/Swift_Dzire.jpeg", alt: "Swift Dzire car photo supplied for the fleet" },
@@ -54,24 +55,33 @@ function Header() {
   </>;
 }
 
+function Words({ text, start }: { text: string; start: number }) {
+  const reduce = useReducedMotion();
+  return <>{text.split(" ").map((word, i) => <Fragment key={`${word}-${i}`}><span className="word-mask"><motion.span className="word" initial={reduce ? false : { y: "115%", rotate: 4 }} animate={{ y: 0, rotate: 0 }} transition={{ duration: .95, delay: start + i * .13, ease: [0.22, 1, .36, 1] }}>{word}</motion.span></span>{" "}</Fragment>)}</>;
+}
+
 function Hero() {
   const heroRef = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
   useEffect(() => {
-    const image = heroRef.current?.querySelector(".hero-photo");
+    const image = heroRef.current?.querySelector(".hero-strips");
     const hero = heroRef.current;
     if (!image || !hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const tween = gsap.fromTo(image, { scale: 1 }, { scale: 1.12, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1 } });
     return () => { tween.scrollTrigger?.kill(); tween.kill(); };
   }, []);
-  return <section className="hero" id="top" ref={heroRef}>
+  return <><section className="hero" id="top" ref={heroRef}>
     <div className="hero-media">
-      <Image className="hero-photo" src="/temples/main/5.PNG" alt="Pilgrimage route background image supplied for Shri Samarth Cabs" fill priority quality={92} sizes="100vw" />
+      <div className="hero-strips" role="img" aria-label="Devotional paintings of the deities and saints on the Solapur pilgrimage circuit">
+        {[0, 1, 2, 3].map((i) => <div className="hero-strip" style={{ "--i": i } as React.CSSProperties} key={i}><picture><source media="(max-width: 760px)" srcSet="/hero/mobile.webp" />{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/hero/desktop.webp" alt="" width={1536} height={1024} decoding="async" {...(i === 0 ? { fetchPriority: "high" as const } : {})} /></picture></div>)}
+      </div>
+      <div className="hero-shine" />
+      <GoldDust />
       <div className="hero-shade" />
     </div>
     <div className="hero-content">
       <motion.p className="eyebrow hero-eyebrow" initial={reduce ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, delay: .35 }}>A quieter way to make the journey</motion.p>
-      <motion.h1 initial={reduce ? false : { opacity: 0, y: 34 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .9, delay: .5, ease: [0.22, 1, .36, 1] }}>Pilgrimage travel<br /><em>from Solapur.</em></motion.h1>
+      <h1><Words text="Pilgrimage travel" start={.5} /><br /><em><Words text="from Solapur." start={.8} /></em></h1>
       <motion.p className="hero-description" initial={reduce ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .85, duration: .7 }}>Driver-included car travel from Solapur. Share your destination and date; we’ll confirm the route and your quote.</motion.p>
       <motion.div className="hero-actions" initial={reduce ? false : { y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ type: "spring", stiffness: 90, damping: 18, delay: 1.05 }}>
         <a className="booking-submit hero-cta" href={wa} target="_blank" rel="noopener">WhatsApp for a trip quote <ArrowUpRight size={16} /></a>
@@ -81,7 +91,8 @@ function Hero() {
     </div>
     <div className="hero-bottom"><span>BASED IN SOLAPUR</span><a href="#circuit">SCROLL TO EXPLORE <ArrowDown size={14} /></a><span>01 — 04 / PILGRIMAGE STOPS</span></div>
     <div className="hero-side-note">A JOURNEY MADE FOR THE DARSHAN</div>
-  </section>;
+  </section>
+  <div className="chant-band" aria-hidden="true"><div className="chant-track">{[0, 1].map((n) => <div className="chant-set" key={n}>{["श्री स्वामी समर्थ", "जय तुळजाभवानी", "जय हरी विठ्ठल", "श्री गुरुदेव दत्त"].map((chant) => <span key={chant}>{chant}<i>✦</i></span>)}</div>)}</div></div></>;
 }
 
 function Circuit() {
@@ -93,8 +104,9 @@ function Circuit() {
   return <section className="circuit-section" id="circuit">
     <div className="section-kicker"><span>THE SOLAPUR CIRCUIT</span><span>04 DESTINATIONS · 01 HOME BASE</span></div>
     <Reveal className="circuit-head"><p className="eyebrow">Choose your darshan</p><h2>One home base.<br /><em>Four sacred stops.</em></h2><p className="circuit-intro">Shri Samarth Cabs is based in Solapur and offers car hire with a driver for customer-chosen trips. Pick a destination below, or combine them into one journey.</p></Reveal>
-    <div className="dham-grid">{dham.map((item) => <Reveal key={item.id}><a className="dham-card" href={`#${item.id}`}>
-      <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 760px) 90vw, (max-width: 1100px) 45vw, 24vw" quality={85} />
+    <div className="dham-grid">{dham.map((item) => <Reveal key={item.id}><a className="dham-card" href={`#${item.id}`} onMouseMove={(e) => { const box = e.currentTarget.getBoundingClientRect(); e.currentTarget.style.setProperty("--mx", `${e.clientX - box.left}px`); e.currentTarget.style.setProperty("--my", `${e.clientY - box.top}px`); }}>
+      <Image src={`/cards/${item.id}.webp`} alt={item.imageAlt} fill sizes="(max-width: 760px) 90vw, (max-width: 1100px) 45vw, 24vw" quality={85} />
+      <span className="dham-glow" />
       <span className="dham-shade" />
       <span className="dham-no">{item.number}</span>
       <span className="dham-info"><span className="dham-local">{item.local}</span><strong>{item.title}</strong><small><MapPin size={12} /> {item.distance} from Solapur</small></span>
