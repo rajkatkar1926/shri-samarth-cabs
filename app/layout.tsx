@@ -32,5 +32,5 @@ const businessSchema = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en-IN"><head><link rel="preload" as="image" href="/hero/mobile.webp" media="(max-width: 760px)" fetchPriority="high" /><link rel="preload" as="image" href="/hero/desktop.webp" media="(min-width: 761px)" fetchPriority="high" /><script dangerouslySetInnerHTML={{ __html: "try{var n=navigator;if((n.hardwareConcurrency||8)<=4||(n.deviceMemory||8)<=4)document.documentElement.setAttribute('data-lite','1')}catch(e){}" }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} /></head><body><MotionProvider />{children}</body></html>;
+  return <html lang="en-IN"><head><link rel="preload" as="image" href="/hero/light.webp" fetchPriority="high" /><script dangerouslySetInnerHTML={{ __html: "try{var n=navigator;if((n.hardwareConcurrency||8)<=4||(n.deviceMemory||8)<=4)document.documentElement.setAttribute('data-lite','1')}catch(e){}" }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} /></head><body><MotionProvider />{children}</body></html>;
 }

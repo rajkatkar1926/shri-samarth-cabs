@@ -212,3 +212,28 @@ h1 em, h2 em { color: var(--saffron); font-weight: 400; }
 [data-lite] .hero-media, [data-lite] .hero-strip img, [data-lite] .hero-shine, [data-lite] .hero-cta, [data-lite] .gold-dust { animation: none; }
 [data-lite] .hero-shine, [data-lite] .gold-dust { display: none; }
 [data-lite] .hero-call, [data-lite] .site-header { backdrop-filter: none; }
+
+/* Light hero (default): bright painting, dark heading */
+.hero.hero-light { align-items: center; color: #2e1810; background: var(--cream); }
+.hero-light .hero-media { animation: none; }
+.hero-light .hero-photo { opacity: 1; object-position: 78% 46%; }
+.hero-light .hero-shade { background: linear-gradient(90deg, rgba(255,248,232,.96) 0%, rgba(255,248,232,.78) 34%, rgba(255,248,232,0) 62%), linear-gradient(0deg, var(--cream) 0%, rgba(255,248,232,0) 24%); }
+.hero-light .hero-content { margin: 42px auto 20px; }
+.hero-light .hero-eyebrow { color: var(--maroon); }
+.hero-light h1 { color: #3a170f; text-shadow: none; font-size: clamp(44px,6.6vw,92px); }
+.hero-light h1 em { color: #e0701a; }
+.hero-light .hero-description { max-width: 520px; margin: 24px 0 29px; color: #5a4636; font-size: 16px; line-height: 1.7; text-shadow: none; }
+.hero-light .hero-call { border-color: rgba(123,45,38,.5); color: var(--maroon); background: rgba(255,255,255,.55); backdrop-filter: none; }
+.hero-light .hero-call:hover { background: rgba(123,45,38,.09); }
+.hero-light .hero-trust { color: #6b5846; }
+.hero-light .hero-trust svg { color: #e0701a; }
+.hero-light .hero-bottom { color: #7d6850; }
+.hero-light .hero-side-note { color: #8a7560; }
+@media (max-width: 760px) {
+  .hero.hero-light { align-items: flex-start; }
+  .hero-light .hero-photo { top: auto !important; bottom: 0; height: 50% !important; object-position: 88% 40%; -webkit-mask-image: linear-gradient(180deg, transparent, #000 28%); mask-image: linear-gradient(180deg, transparent, #000 28%); }
+  .hero-light .hero-shade { background: linear-gradient(180deg, rgba(255,248,232,.97) 0%, rgba(255,248,232,.9) 52%, rgba(255,248,232,.05) 100%), linear-gradient(0deg, var(--cream) 0%, rgba(255,248,232,0) 16%); }
+  .hero-light .hero-content { margin: 92px auto 0; }
+  .hero-light h1 { font-size: clamp(40px,11.4vw,64px); }
+  .hero-light .hero-description { max-width: 360px; margin: 18px 0 23px; font-size: 14px; }
+}

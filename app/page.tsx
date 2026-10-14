@@ -61,23 +61,26 @@ function Words({ text, start }: { text: string; start: number }) {
   return <>{text.split(" ").map((word, i) => <Fragment key={`${word}-${i}`}><span className="word-mask"><motion.span className="word" initial={reduce ? false : { y: "115%", rotate: 4 }} animate={{ y: 0, rotate: 0 }} transition={{ duration: .95, delay: start + i * .13, ease: [0.22, 1, .36, 1] }}>{word}</motion.span></span>{" "}</Fragment>)}</>;
 }
 
+const lightHero = true; // false switches back to the four-panel cinematic hero (files stay in public/hero)
+
 function Hero() {
   const heroRef = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
   useEffect(() => {
-    const image = heroRef.current?.querySelector(".hero-strips");
+    const image = heroRef.current?.querySelector(".hero-strips, .hero-photo");
     const hero = heroRef.current;
     if (!image || !hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const tween = gsap.fromTo(image, { scale: 1 }, { scale: 1.12, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1 } });
     return () => { tween.scrollTrigger?.kill(); tween.kill(); };
   }, []);
-  return <><section className="hero" id="top" ref={heroRef}>
+  return <><section className={lightHero ? "hero hero-light" : "hero"} id="top" ref={heroRef}>
     <div className="hero-media">
+      {lightHero ? <Image className="hero-photo" src="/hero/light.webp" alt="Swami Samarth seated in meditation among the clouds, Solapur pilgrimage travel" fill priority sizes="100vw" /> : <>
       <div className="hero-strips">
         {[0, 1, 2, 3].map((i) => <div className="hero-strip" style={{ "--i": i } as React.CSSProperties} key={i}><picture><source media="(max-width: 760px)" srcSet="/hero/mobile.webp" />{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/hero/desktop.webp" alt={i === 0 ? "Devotional paintings of the deities and saints on the Solapur pilgrimage circuit" : ""} aria-hidden={i === 0 ? undefined : true} width={1536} height={1024} decoding="async" {...(i === 0 ? { fetchPriority: "high" as const } : {})} /></picture></div>)}
       </div>
       <div className="hero-shine" />
-      <GoldDust />
+      <GoldDust /></>}
       <div className="hero-shade" />
     </div>
     <div className="hero-content">
