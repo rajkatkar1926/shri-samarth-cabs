@@ -109,7 +109,7 @@ function Circuit() {
     <div className="section-kicker"><span>THE SOLAPUR CIRCUIT</span><span>04 DESTINATIONS · 01 HOME BASE</span></div>
     <Reveal className="circuit-head"><p className="eyebrow">Choose your darshan</p><h2>One home base.<br /><em>Four sacred stops.</em></h2><p className="circuit-intro">Shri Samarth Cabs is based in Solapur and offers car hire with a driver for customer-chosen trips. Pick a destination below, or combine them into one journey.</p></Reveal>
     <div className="dham-grid">{dham.map((item) => <Reveal key={item.id}><a className="dham-card" href={`#${item.id}`} onMouseMove={(e) => { const box = e.currentTarget.getBoundingClientRect(); e.currentTarget.style.setProperty("--mx", `${e.clientX - box.left}px`); e.currentTarget.style.setProperty("--my", `${e.clientY - box.top}px`); }}>
-      <Image src={`/cards/${item.id}.webp`} alt={cardAlt[item.id]} fill sizes="(max-width: 760px) 90vw, (max-width: 1100px) 45vw, 24vw" quality={85} />
+      <Image src={`/cards/${item.id}.webp?v=2`} alt={cardAlt[item.id]} fill sizes="(max-width: 760px) 90vw, (max-width: 1100px) 45vw, 24vw" quality={85} />
       <span className="dham-glow" />
       <span className="dham-shade" />
       <span className="dham-no">{item.number}</span>
