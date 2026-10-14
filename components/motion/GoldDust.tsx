@@ -9,7 +9,7 @@ export function GoldDust({ count = 36 }: { count?: number }) {
   useEffect(() => {
     const el = canvas.current;
     const ctx = el?.getContext("2d");
-    if (!el || !ctx || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!el || !ctx || document.documentElement.hasAttribute("data-lite") || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let width = 0;
     let height = 0;
     let frame = 0;

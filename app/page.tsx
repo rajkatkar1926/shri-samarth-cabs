@@ -17,15 +17,16 @@ const wa = `https://wa.me/919763747437?text=${encodeURIComponent("Hello, I'm pla
 const googleMapsRoute = (destination: string) => `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent("SPOT ON Nivant Lodge, Solapur")}&destination=${encodeURIComponent(destination)}&travelmode=driving`;
 const dham = [
   { id: "tuljapur", number: "01", title: "Tulja Bhavani", local: "तुळजाभवानी", image: "/temples/tuljapur/2.webp", imageAlt: "Tulja Bhavani murti adorned with flowers", location: "Tuljapur", distance: "44.9 km", mapsUrl: googleMapsRoute("Shri Tuljabhavani Temple, Tuljapur"), descriptor: "A pilgrimage stop on the Tuljapur + Pandharpur day trip." },
-  { id: "akkalkot", number: "02", title: "Akkalkot", local: "अक्कलकोट", image: "/temples/akkalkot/4.webp", imageAlt: "Shrine and murti image supplied for the Akkalkot pilgrimage stop", location: "Akkalkot", distance: "43.3 km", mapsUrl: googleMapsRoute("Shri Vatavruksha Swami Maharaj Devasthan, Akkalkot"), descriptor: "A pilgrimage stop on the Akkalkot + Gangapur day trip." },
-  { id: "gangapur", number: "03", title: "Gangapur", local: "गाणगापूर", image: "/temples/gangapur/6.webp", imageAlt: "Temple tower image supplied for the Gangapur pilgrimage stop", location: "Ganagapur Dattatreya Temple", distance: "110 km", mapsUrl: googleMapsRoute("Ganagapur Dattatreya Temple Sri Kshetra Ganagapur, Deval Ganagapur, Afzalpur Taluk, Karnataka"), descriptor: "A pilgrimage stop on the Akkalkot + Gangapur day trip." },
+  { id: "akkalkot", number: "02", title: "Akkalkot", local: "अक्कलकोट", image: "/temples/akkalkot/4.webp", imageAlt: "Decorated murti in the shrine at Akkalkot", location: "Akkalkot", distance: "43.3 km", mapsUrl: googleMapsRoute("Shri Vatavruksha Swami Maharaj Devasthan, Akkalkot"), descriptor: "A pilgrimage stop on the Akkalkot + Gangapur day trip." },
+  { id: "gangapur", number: "03", title: "Gangapur", local: "गाणगापूर", image: "/temples/gangapur/6.webp", imageAlt: "Temple tower at Gangapur against the sky", location: "Ganagapur Dattatreya Temple", distance: "110 km", mapsUrl: googleMapsRoute("Ganagapur Dattatreya Temple Sri Kshetra Ganagapur, Deval Ganagapur, Afzalpur Taluk, Karnataka"), descriptor: "A pilgrimage stop on the Akkalkot + Gangapur day trip." },
   { id: "pandharpur", number: "04", title: "Pandharpur", local: "पंढरपूर", image: "/temples/pandharpur/5.webp", imageAlt: "Vitthal murti in the Pandharpur temple", location: "Pandharpur", distance: "69.2 km", mapsUrl: googleMapsRoute("Shree Vitthal Rukmini Temple, Pandharpur"), descriptor: "A pilgrimage stop on the Tuljapur + Pandharpur day trip." },
 ];
+const cardAlt: Record<string, string> = { tuljapur: "Painting of Tulja Bhavani of Tuljapur", akkalkot: "Painting of Swami Samarth of Akkalkot", gangapur: "Painting of the saint of Gangapur", pandharpur: "Painting of Vitthal of Pandharpur" };
 const fleet = [
-  { name: "Swift Dzire", file: "/fleet/Swift_Dzire.jpeg", alt: "Swift Dzire car photo supplied for the fleet" },
-  { name: "Ertiga", file: "/fleet/Ertiga.jpeg", alt: "Ertiga car photo supplied for the fleet" },
-  { name: "Toyota Innova Crysta", file: "/fleet/Innova_crysta.jpeg", alt: "Toyota Innova Crysta car photo supplied for the fleet" },
-  { name: "Cruiser", file: "/fleet/Cruiser.jpeg", alt: "Cruiser vehicle photo supplied for the fleet" },
+  { name: "Swift Dzire", file: "/fleet/Swift_Dzire.webp", alt: "Swift Dzire sedan available with a driver from Solapur" },
+  { name: "Ertiga", file: "/fleet/Ertiga.webp", alt: "Maruti Ertiga seven-seater available with a driver from Solapur" },
+  { name: "Toyota Innova Crysta", file: "/fleet/Innova_crysta.webp", alt: "Toyota Innova Crysta available with a driver from Solapur" },
+  { name: "Cruiser", file: "/fleet/Cruiser.webp", alt: "Cruiser group vehicle available with a driver from Solapur" },
 ];
 
 function Header() {
@@ -46,7 +47,7 @@ function Header() {
   return <>
     <div className="scroll-progress" data-scroll-progress />
     <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
-      <a className="brand" href="#top" aria-label="Shri Samarth Cabs home"><span className="brand-seal"><Image src="/brand/logo-mark.webp" alt="" width={48} height={48} /></span><span>Shri Samarth <b>Cabs</b><small>Solapur · Maharashtra</small></span></a>
+      <a className="brand" href="#top" aria-label="Shri Samarth Cabs home"><span className="brand-seal"><Image src="/brand/logo-mark.webp" alt="Shri Samarth Cabs logo: Swami Samarth" width={48} height={48} /></span><span>Shri Samarth <b>Cabs</b><small>Solapur · Maharashtra</small></span></a>
       <nav className="desktop-nav" aria-label="Main navigation">{links.map((link) => <a key={link.href} href={link.href} className={active === link.href.slice(1) ? "is-active" : ""} aria-current={active === link.href.slice(1) ? "location" : undefined}>{link.label}<i /></a>)}</nav>
       <div className="nav-actions"><a className="nav-call" href={`tel:${phone}`} aria-label="Call Shri Samarth Cabs"><Phone size={15} /> <span>Call</span></a><MagneticButton className="nav-whatsapp" href={wa} target="_blank" rel="noopener">WhatsApp <ArrowUpRight size={15} /></MagneticButton></div>
       <Button variant="outline" className="menu-toggle" onClick={() => setOpen(!open)} aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open}>{open ? <X /> : <Menu />}</Button>
@@ -72,8 +73,8 @@ function Hero() {
   }, []);
   return <><section className="hero" id="top" ref={heroRef}>
     <div className="hero-media">
-      <div className="hero-strips" role="img" aria-label="Devotional paintings of the deities and saints on the Solapur pilgrimage circuit">
-        {[0, 1, 2, 3].map((i) => <div className="hero-strip" style={{ "--i": i } as React.CSSProperties} key={i}><picture><source media="(max-width: 760px)" srcSet="/hero/mobile.webp" />{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/hero/desktop.webp" alt="" width={1536} height={1024} decoding="async" {...(i === 0 ? { fetchPriority: "high" as const } : {})} /></picture></div>)}
+      <div className="hero-strips">
+        {[0, 1, 2, 3].map((i) => <div className="hero-strip" style={{ "--i": i } as React.CSSProperties} key={i}><picture><source media="(max-width: 760px)" srcSet="/hero/mobile.webp" />{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/hero/desktop.webp" alt={i === 0 ? "Devotional paintings of the deities and saints on the Solapur pilgrimage circuit" : ""} aria-hidden={i === 0 ? undefined : true} width={1536} height={1024} decoding="async" {...(i === 0 ? { fetchPriority: "high" as const } : {})} /></picture></div>)}
       </div>
       <div className="hero-shine" />
       <GoldDust />
@@ -105,7 +106,7 @@ function Circuit() {
     <div className="section-kicker"><span>THE SOLAPUR CIRCUIT</span><span>04 DESTINATIONS · 01 HOME BASE</span></div>
     <Reveal className="circuit-head"><p className="eyebrow">Choose your darshan</p><h2>One home base.<br /><em>Four sacred stops.</em></h2><p className="circuit-intro">Shri Samarth Cabs is based in Solapur and offers car hire with a driver for customer-chosen trips. Pick a destination below, or combine them into one journey.</p></Reveal>
     <div className="dham-grid">{dham.map((item) => <Reveal key={item.id}><a className="dham-card" href={`#${item.id}`} onMouseMove={(e) => { const box = e.currentTarget.getBoundingClientRect(); e.currentTarget.style.setProperty("--mx", `${e.clientX - box.left}px`); e.currentTarget.style.setProperty("--my", `${e.clientY - box.top}px`); }}>
-      <Image src={`/cards/${item.id}.webp`} alt={item.imageAlt} fill sizes="(max-width: 760px) 90vw, (max-width: 1100px) 45vw, 24vw" quality={85} />
+      <Image src={`/cards/${item.id}.webp`} alt={cardAlt[item.id]} fill sizes="(max-width: 760px) 90vw, (max-width: 1100px) 45vw, 24vw" quality={85} />
       <span className="dham-glow" />
       <span className="dham-shade" />
       <span className="dham-no">{item.number}</span>
@@ -169,7 +170,9 @@ const reviews = [
   { quote: "Affordable pricing and top-quality service. The driver had good route knowledge, which saved us time. Will surely travel again with you!", name: "Harish C." },
 ];
 function Testimonials() {
-  return <section className="reviews-section"><div className="review-wave" aria-hidden="true"><svg viewBox="0 0 1440 160" preserveAspectRatio="none"><path d="M0 60 C210 150 300 20 520 65 S830 155 1060 62 S1300 30 1440 90 V160 H0Z"/><path d="M0 95 C190 10 360 150 560 94 S860 15 1070 98 S1280 120 1440 48 V160 H0Z"/></svg></div><div className="reviews-inner"><Reveal><div className="review-heading"><p className="eyebrow">Words from the road</p><h2>Shared by travellers.</h2><p>Customer testimonials from our earlier website.</p></div></Reveal><div className="review-marquee" aria-label="Customer testimonials"><div className="review-track">{[...reviews, ...reviews].map((review, i) => <figure className="review-card" key={`${review.name}-${i}`}><span className="review-quote-mark">“</span><blockquote>{review.quote}</blockquote><figcaption><span>{review.name}</span><small>Customer testimonial</small></figcaption></figure>)}</div></div></div></section>;
+  const [loop, setLoop] = useState(false);
+  useEffect(() => setLoop(true), []);
+  return <section className="reviews-section"><div className="review-wave" aria-hidden="true"><svg viewBox="0 0 1440 160" preserveAspectRatio="none"><path d="M0 60 C210 150 300 20 520 65 S830 155 1060 62 S1300 30 1440 90 V160 H0Z"/><path d="M0 95 C190 10 360 150 560 94 S860 15 1070 98 S1280 120 1440 48 V160 H0Z"/></svg></div><div className="reviews-inner"><Reveal><div className="review-heading"><p className="eyebrow">Words from the road</p><h2>Shared by travellers.</h2><p>Customer testimonials from our earlier website.</p></div></Reveal><div className="review-marquee" aria-label="Customer testimonials"><div className="review-track">{(loop ? [...reviews, ...reviews] : reviews).map((review, i) => <figure className="review-card" key={`${review.name}-${i}`} aria-hidden={i >= reviews.length ? true : undefined}><span className="review-quote-mark">“</span><blockquote>{review.quote}</blockquote><figcaption><span>{review.name}</span><small>Customer testimonial</small></figcaption></figure>)}</div></div></div></section>;
 }
 
 function MobileContactBar() {
@@ -192,13 +195,13 @@ function MobileContactBar() {
 }
 
 function Footer() {
-  return <footer className="footer" id="contact"><div className="footer-silhouette" aria-hidden="true"><span className="temple-tower tower-a"/><span className="temple-tower tower-b"/><span className="temple-dome"/></div><div className="footer-content"><Reveal><p className="eyebrow">Your next journey starts here</p><h2>Chala, Darshan<br /><em>Karuya?</em></h2><p>Share your destination and travel date. Call or WhatsApp Shri Samarth Cabs to discuss route availability and get a quote.</p><div className="footer-actions"><MagneticButton className="footer-cta" href={wa} target="_blank" rel="noopener">WhatsApp to plan your trip <ArrowUpRight size={18} /></MagneticButton><a className="footer-call" href={`tel:${phone}`}><Phone size={16} /> +91 97637 47437</a></div></Reveal></div><div className="footer-base"><a className="brand footer-brand" href="#top"><span className="brand-seal"><Image src="/brand/logo-mark.webp" alt="" width={48} height={48} /></span><span>Shri Samarth <b>Cabs</b><small>Solapur · Maharashtra</small></span></a><span>Driver-included car travel from Solapur</span><a href="mailto:Swamicabs48@gmail.com">Swamicabs48@gmail.com</a><span>© 2026 Shri Samarth Cabs</span></div></footer>;
+  return <footer className="footer" id="contact"><div className="footer-silhouette" aria-hidden="true"><span className="temple-tower tower-a"/><span className="temple-tower tower-b"/><span className="temple-dome"/></div><div className="footer-content"><Reveal><p className="eyebrow">Your next journey starts here</p><h2>Chala, Darshan<br /><em>Karuya?</em></h2><p>Share your destination and travel date. Call or WhatsApp Shri Samarth Cabs to discuss route availability and get a quote.</p><div className="footer-actions"><MagneticButton className="footer-cta" href={wa} target="_blank" rel="noopener">WhatsApp to plan your trip <ArrowUpRight size={18} /></MagneticButton><a className="footer-call" href={`tel:${phone}`}><Phone size={16} /> +91 97637 47437</a></div></Reveal></div><div className="footer-base"><a className="brand footer-brand" href="#top"><span className="brand-seal"><Image src="/brand/logo-mark.webp" alt="" aria-hidden="true" width={48} height={48} /></span><span>Shri Samarth <b>Cabs</b><small>Solapur · Maharashtra</small></span></a><span>Driver-included car travel from Solapur</span><a href="mailto:Swamicabs48@gmail.com">Swamicabs48@gmail.com</a><span>© 2026 Shri Samarth Cabs</span></div></footer>;
 }
 
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
   const reduce = useReducedMotion();
-  useEffect(() => { const id = window.setTimeout(() => setLoaded(true), reduce ? 0 : 900); return () => window.clearTimeout(id); }, [reduce]);
+  useEffect(() => { const id = window.setTimeout(() => setLoaded(true), reduce ? 0 : 300); return () => window.clearTimeout(id); }, [reduce]);
   return <>
     <AnimatePresence>{!loaded && <motion.div className="preloader" initial={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: .55 } }}><div className="preloader-inner"><svg className="bell" viewBox="0 0 64 72" fill="none" aria-hidden="true"><path d="M12 48h40l-5-8V27a15 15 0 0 0-30 0v13l-5 8Z"/><path d="M25 56a7 7 0 0 0 14 0M32 6v5"/></svg><p aria-label="Solapur to darshan">{"SOLAPUR TO DARSHAN".split("").map((letter, i) => <motion.span key={`${letter}-${i}`} aria-hidden="true" initial={reduce ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * .035, duration: .28 }}>{letter === " " ? "\u00a0" : letter}</motion.span>)}</p><div className="preloader-line"><i /></div></div></motion.div>}</AnimatePresence>
     <Header />

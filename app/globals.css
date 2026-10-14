@@ -129,8 +129,8 @@ h1 em, h2 em { color: var(--saffron); font-weight: 400; }
 .hero-strips { position: absolute; inset: 0; display: flex; }
 .hero-strip { position: relative; flex: 0 0 25%; height: 100%; overflow: hidden; animation: strip-up 1.5s cubic-bezier(.22,1,.36,1) both; animation-delay: calc(var(--i) * .16s + .1s); }
 .hero-strip img { position: absolute; top: -4%; left: calc(var(--i) * -100%); width: 400%; max-width: none; height: 108%; object-fit: cover; animation: panel-float 14s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -3.5s); }
-.hero-shine { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen; background: linear-gradient(105deg, transparent 38%, rgba(255,214,140,.26) 50%, transparent 62%); transform: translateX(-130%); animation: hero-shine 7.5s ease-in-out 2.6s infinite; }
-.gold-dust { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; mix-blend-mode: screen; }
+.hero-shine { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(105deg, transparent 38%, rgba(255,214,140,.26) 50%, transparent 62%); transform: translateX(-130%); animation: hero-shine 7.5s ease-in-out 2.6s infinite; }
+.gold-dust { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .hero-shade { background: linear-gradient(0deg, rgba(14,7,3,.95) 0%, rgba(14,7,3,.82) 24%, rgba(14,7,3,.5) 42%, rgba(14,7,3,.16) 57%, rgba(14,7,3,0) 70%), linear-gradient(90deg, rgba(14,7,3,.55), rgba(14,7,3,0) 56%); }
 .hero-content { margin: 0 auto 84px; }
 .hero-eyebrow { color: #ffc98a; }
@@ -201,9 +201,14 @@ h1 em, h2 em { color: var(--saffron); font-weight: 400; }
 .hero-media .hero-shine { z-index: 1; }
 .hero-media .gold-dust { z-index: 2; }
 .hero-media .hero-shade { z-index: 3; }
-.preloader { animation: preloader-out .5s ease 2.2s forwards; }
+.preloader { animation: preloader-out .4s ease 1.3s forwards; }
 @keyframes preloader-out { to { opacity: 0; visibility: hidden; pointer-events: none; } }
 
 .brand-seal { width: 46px; height: 46px; border: 0; overflow: hidden; background: var(--cream); box-shadow: 0 2px 14px rgba(0,0,0,.35); }
 .brand-seal img { width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 760px) { .brand-seal { width: 40px; height: 40px; } }
+
+/* Slower phones and laptops: keep the look, drop the continuous motion */
+[data-lite] .hero-media, [data-lite] .hero-strip img, [data-lite] .hero-shine, [data-lite] .hero-cta, [data-lite] .gold-dust { animation: none; }
+[data-lite] .hero-shine, [data-lite] .gold-dust { display: none; }
+[data-lite] .hero-call, [data-lite] .site-header { backdrop-filter: none; }
