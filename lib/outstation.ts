@@ -24,6 +24,8 @@ const outRoutes = [
   { href: "/solapur-to-pune-taxi", label: "Solapur to Pune taxi" },
   { href: "/solapur-to-mumbai-taxi", label: "Solapur to Mumbai taxi" },
   { href: "/solapur-to-kolhapur-taxi", label: "Solapur to Kolhapur taxi" },
+  { href: "/solapur-to-hyderabad-taxi", label: "Solapur to Hyderabad taxi" },
+  { href: "/solapur-airport-taxi", label: "Solapur airport taxi" },
   { href: "/solapur-outstation-taxi", label: "All Solapur outstation routes" },
 ];
 const others = (slug: string) => outRoutes.filter((r) => r.href !== `/${slug}`);
@@ -234,6 +236,96 @@ export const outstationPages: OutstationInfo[] = [
       { q: "How do I get the fare?", a: "Call or WhatsApp. We confirm the quote for your date and car. We do not publish fixed fares." },
     ],
     related: others("solapur-to-kolhapur-taxi"),
+  },
+  {
+    slug: "solapur-to-hyderabad-taxi",
+    crumb: "Solapur to Hyderabad taxi",
+    title: "Solapur to Hyderabad Taxi | Cab with Driver | Shri Samarth Cabs",
+    description: "Taxi from Solapur to Hyderabad with a driver, including Hyderabad airport transfers. Call Shri Samarth Cabs and we confirm your route and quote before you travel.",
+    eyebrow: "Taxi from Solapur to Hyderabad",
+    h1: "Solapur to Hyderabad taxi with a driver",
+    lead: "A long run south-east across the Telangana border, with a driver who handles the road. Call with your date and pickup and we confirm the car and the quote first.",
+    facts: [
+      { big: "About 300 km", small: "Google Maps estimate" },
+      { big: "Driver included", small: "on every car" },
+      { big: "Quote on call", small: "confirmed before you go" },
+    ],
+    image: "/fleet/Ertiga.webp",
+    imageAlt: "Ertiga cab for Solapur to Hyderabad trips",
+    sections: [
+      {
+        h2: "The road from Solapur to Hyderabad",
+        paras: [
+          "The drive heads south-east through Karnataka and into Telangana on the national highway, usually in about six hours before city traffic. You cross a state border on the way, so tell us in advance if you plan stops, and we confirm how the border permit and any road charges affect the quote before you leave.",
+        ],
+      },
+      {
+        h2: "Who books this trip",
+        list: [
+          "Families visiting relatives in Hyderabad or Secunderabad",
+          "Travellers going for a medical visit or an exam",
+          "Passengers catching a flight at Hyderabad airport",
+          "Business travellers with meetings in Hyderabad",
+        ],
+      },
+      { h2: "Which car for Hyderabad", paras: carsParas },
+      { h2: "Hyderabad airport transfers", paras: ["For a flight from Hyderabad, tell us the departure time. We plan the start from Solapur with a buffer for the road and city traffic. For a pickup from the airport back to Solapur, send us the landing time and flight number."] },
+      { h2: "What to tell us when you call", list: commonEnquire },
+    ],
+    mapsUrl: googleMapsRoute("Hyderabad, Telangana"),
+    mapsLabel: "Open the Google Maps driving route to Hyderabad",
+    waExtra: "Destination: Hyderabad",
+    faqs: [
+      { q: "How long does Solapur to Hyderabad take?", a: "Usually about six hours before city traffic. It depends on the hour and the road." },
+      { q: "Do you do Hyderabad airport drops and pickups?", a: "Yes. Send us the flight time and your address and we plan the timing." },
+      { q: "Is the driver included?", a: "Yes. Every car goes with a driver." },
+      { q: "Does the trip cost more because it crosses into Telangana?", a: "Permit and road charges can apply on an inter-state trip. We include them in the quote we confirm before you travel." },
+      { q: "How do I get the fare?", a: "Call or WhatsApp. We confirm the quote for your date and car. We do not publish fixed fares." },
+    ],
+    related: others("solapur-to-hyderabad-taxi"),
+  },
+  {
+    slug: "solapur-airport-taxi",
+    crumb: "Solapur airport taxi",
+    title: "Solapur Airport Taxi | Pune, Mumbai, Hyderabad | Shri Samarth Cabs",
+    description: "Airport taxi from Solapur to Pune, Mumbai and Hyderabad airports, and back, with a driver. Call Shri Samarth Cabs with your flight time and we confirm the quote.",
+    eyebrow: "Airport taxi from Solapur",
+    h1: "Solapur airport taxi with a driver",
+    lead: "Catching a flight or landing in Pune, Mumbai or Hyderabad? Give us your flight time and we plan the pickup so you are not rushing.",
+    facts: [
+      { big: "3 airports", small: "Pune, Mumbai, Hyderabad" },
+      { big: "Driver included", small: "on every car" },
+      { big: "Quote on call", small: "confirmed before you go" },
+    ],
+    image: "/fleet/Swift_Dzire.webp",
+    imageAlt: "Swift Dzire cab for airport transfers from Solapur",
+    sections: [
+      {
+        h2: "Airports we go to from Solapur",
+        list: [
+          "Pune airport, about 260 km from Solapur on the Google Maps estimate",
+          "Mumbai airport, about 410 km, usually a full day or an early start",
+          "Hyderabad airport, about 330 km, across the Telangana border",
+        ],
+      },
+      {
+        h2: "How we plan the timing",
+        paras: [
+          "Tell us the flight time and whether it is a domestic or international flight. We work backwards from check-in time and add a buffer for the road and the city traffic near the airport. For long runs like Mumbai, many travellers leave the night before or very early in the morning, and we can plan for that.",
+          "For arrivals, send us the landing time and flight number. Your driver reaches the airport in time and waits for you.",
+        ],
+      },
+      { h2: "Which car for the airport", paras: carsParas },
+      { h2: "What to tell us when you call", list: ["Which airport, and whether you are departing or arriving", "Flight time and flight number", "Your pickup or drop address", "Number of passengers and bags", "One way, or a return later"] },
+    ],
+    waExtra: "Enquiry: airport taxi",
+    faqs: [
+      { q: "Which airports do you go to?", a: "Pune, Mumbai and Hyderabad airports, from Solapur and back." },
+      { q: "Do you wait if my flight is delayed?", a: "Send us the flight number and we track the arrival. Any waiting time is agreed with you before the trip." },
+      { q: "Is the driver included?", a: "Yes. Every car goes with a driver." },
+      { q: "How do I get the fare?", a: "Call or WhatsApp. We confirm the quote for your airport, date and car. We do not publish fixed fares." },
+    ],
+    related: others("solapur-airport-taxi"),
   },
 ];
 

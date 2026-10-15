@@ -17,6 +17,8 @@ export const SITE_PAGES: SitePage[] = [
   { href: "/solapur-to-pune-taxi", label: "Solapur to Pune", group: "Routes" },
   { href: "/solapur-to-mumbai-taxi", label: "Solapur to Mumbai", group: "Routes" },
   { href: "/solapur-to-kolhapur-taxi", label: "Solapur to Kolhapur", group: "Routes" },
+  { href: "/solapur-to-hyderabad-taxi", label: "Solapur to Hyderabad", group: "Routes" },
+  { href: "/solapur-airport-taxi", label: "Solapur airport taxi", group: "Routes" },
   { href: "/solapur-to-tuljapur-taxi", label: "Solapur to Tuljapur", group: "Routes" },
   { href: "/solapur-to-akkalkot-taxi", label: "Solapur to Akkalkot", group: "Routes" },
   { href: "/solapur-to-pandharpur-taxi", label: "Solapur to Pandharpur", group: "Routes" },
