@@ -407,3 +407,12 @@ h1 em, h2 em { color: var(--saffron); font-weight: 400; }
 .fleet-info h3 { font-size: 26px; }
 
 @media (max-width: 760px) { .stats-grid { gap: 4px; } .stat { padding: 4px 2px; } .stat b { font-size: 26px; } .stat span { font-size: 12px; } }
+
+/* ===== Cookie notice ===== */
+.cookie-note { position: fixed; left: 12px; right: 12px; bottom: 76px; z-index: 60; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; max-width: 760px; margin: 0 auto; padding: 14px 16px; border-radius: 12px; background: #2b140d; color: #fff8e8; box-shadow: 0 14px 40px rgba(0,0,0,.4); font-size: 14px; line-height: 1.5; }
+.cookie-note p { margin: 0; flex: 1 1 280px; }
+.cookie-note a { color: #ffc98a; text-decoration: underline; }
+.cookie-note div { display: flex; gap: 8px; }
+.cookie-note button { min-height: 44px; padding: 0 18px; border: 0; border-radius: 8px; background: var(--saffron); color: #23180d; font-weight: 700; cursor: pointer; }
+.cookie-note .cookie-no { background: transparent; color: #fff8e8; border: 1px solid rgba(255,248,232,.45); }
+@media (min-width: 761px) { .cookie-note { bottom: 20px; } }

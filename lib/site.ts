@@ -13,6 +13,10 @@ export type SitePage = { href: string; label: string; group: "Routes" | "Trips" 
 
 // Pages that are live. The footer and the mobile menu are built from this list.
 export const SITE_PAGES: SitePage[] = [
+  { href: "/solapur-outstation-taxi", label: "Solapur outstation taxi", group: "Routes" },
+  { href: "/solapur-to-pune-taxi", label: "Solapur to Pune", group: "Routes" },
+  { href: "/solapur-to-mumbai-taxi", label: "Solapur to Mumbai", group: "Routes" },
+  { href: "/solapur-to-kolhapur-taxi", label: "Solapur to Kolhapur", group: "Routes" },
   { href: "/solapur-to-tuljapur-taxi", label: "Solapur to Tuljapur", group: "Routes" },
   { href: "/solapur-to-akkalkot-taxi", label: "Solapur to Akkalkot", group: "Routes" },
   { href: "/solapur-to-pandharpur-taxi", label: "Solapur to Pandharpur", group: "Routes" },
@@ -24,6 +28,13 @@ export const SITE_PAGES: SitePage[] = [
   { href: "/about", label: "About us", group: "Company" },
   { href: "/contact", label: "Contact", group: "Company" },
   { href: "/faq", label: "FAQ", group: "Company" },
+  { href: "/privacy", label: "Privacy", group: "Company" },
   { href: "/guides/solapur-temple-trip-planning", label: "How to plan a temple trip", group: "Guides" },
   { href: "/guides/which-car-for-your-group", label: "Which car for your group", group: "Guides" },
 ];
+
+// Google Ads tag. Leave ADS_ID empty until the owner's account gives the ID (format "AW-1234567890").
+// With it empty, no tag loads and no cookie notice shows. Labels come from each conversion action in Google Ads.
+export const ADS_ID = "";
+export const ADS_CALL_TAP_LABEL = "";
+export const ADS_WHATSAPP_TAP_LABEL = "";
