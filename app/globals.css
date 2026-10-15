@@ -309,3 +309,101 @@ h1 em, h2 em { color: var(--saffron); font-weight: 400; }
 .temple-matters { max-width: 440px; margin: 14px 0 0; color: rgba(255,248,232,.82); font-size: 13px; line-height: 1.7; }
 .temple-nearby { max-width: 440px; margin: 8px 0 0; color: #ffc98a; font-size: 12px; line-height: 1.6; }
 .pg-nearby { padding: 12px 16px; border-left: 3px solid var(--saffron); background: rgba(255,153,51,.08); font-size: 15px !important; }
+
+/* ===== Wow pass: highlighted Call Now in every section ===== */
+:root { --call-a: #e0500e; --call-b: #b92a05; }
+.call-now { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 12px; border-radius: 999px; color: #fff; background: linear-gradient(135deg, var(--call-a), var(--call-b)); border: 2px solid rgba(255,214,150,.9); box-shadow: 0 10px 26px rgba(185,42,5,.45), 0 0 0 0 rgba(255,120,40,.6); font-family: var(--sans); text-shadow: 0 1px 2px rgba(60,10,0,.35); white-space: nowrap; animation: call-pulse 2.2s ease-out infinite; transition: transform .2s ease, filter .2s ease; }
+.call-now:hover { transform: translateY(-2px) scale(1.03); filter: brightness(1.08); }
+.call-now:focus-visible, .bar-call:focus-visible { outline: 3px solid #ffd27a; outline-offset: 3px; }
+.call-now-icon { display: grid; place-items: center; flex: none; border-radius: 50%; background: rgba(255,255,255,.2); animation: call-ring 3.2s ease-in-out infinite; transform-origin: 50% 50%; }
+.call-now-text { display: grid; line-height: 1.15; text-align: left; }
+.call-now-text b { font-weight: 800; letter-spacing: .01em; }
+.call-now-text small { margin-top: 2px; font-size: 13px; font-weight: 700; letter-spacing: .03em; opacity: .96; }
+.call-now-lg { min-height: 62px; padding: 0 30px 0 14px; }
+.call-now-lg .call-now-icon { width: 42px; height: 42px; }
+.call-now-lg b { font-size: 19px; }
+.call-now-md { min-height: 54px; padding: 0 26px 0 12px; }
+.call-now-md .call-now-icon { width: 36px; height: 36px; }
+.call-now-md b { font-size: 17px; }
+.call-now-sm { min-height: 42px; padding: 0 18px 0 8px; gap: 8px; box-shadow: 0 6px 16px rgba(185,42,5,.4); }
+.call-now-sm .call-now-icon { width: 28px; height: 28px; }
+.call-now-sm b { font-size: 14px; }
+.call-now-nav { min-height: 42px; padding: 0 16px 0 8px; gap: 8px; }
+.call-now-nav .call-now-icon { width: 28px; height: 28px; }
+.call-now-nav b { font-size: 13px; }
+@keyframes call-pulse { 0% { box-shadow: 0 10px 26px rgba(185,42,5,.45), 0 0 0 0 rgba(255,120,40,.65); } 70%, 100% { box-shadow: 0 10px 26px rgba(185,42,5,.45), 0 0 0 20px rgba(255,120,40,0); } }
+@keyframes call-ring { 0%, 70%, 100% { transform: rotate(0); } 74% { transform: rotate(-16deg); } 78% { transform: rotate(14deg); } 82% { transform: rotate(-12deg); } 86% { transform: rotate(10deg); } 90% { transform: rotate(0); } }
+
+.section-call { display: flex; flex-direction: column; align-items: center; gap: 16px; margin: 46px auto 0; text-align: center; }
+.section-call p { max-width: 460px; margin: 0; color: rgba(255,248,232,.86); font-size: 16px; line-height: 1.6; }
+.section-call-light p { color: #5a4636; }
+.circuit-section .section-call { margin: 44px auto 0; }
+.packages-section .section-call { margin-top: 34px; }
+.review-call { margin: 0 auto 30px; }
+.story-call { margin: 20px 0 4px; }
+.package-call { margin: 0 0 12px 14px; vertical-align: middle; }
+.fleet-info { gap: 10px; }
+.fleet-card:hover { transform: none; }
+
+/* Numbers band */
+.stats-section { background: radial-gradient(ellipse at 50% 0, #8f372c 0, var(--maroon) 55%, #5d201b 100%); color: var(--cream); padding: 64px 7vw 70px; border-bottom: 1px solid rgba(255,200,120,.25); }
+.stats-inner { max-width: 1100px; margin: 0 auto; }
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; text-align: center; }
+.stat { display: grid; gap: 8px; padding: 6px 10px; }
+.stat + .stat { border-left: 1px solid rgba(255,214,150,.28); }
+.stat b { font: 700 clamp(34px, 6vw, 68px)/1 var(--serif); letter-spacing: -.03em; color: #ffc57a; text-shadow: 0 4px 24px rgba(255,150,50,.35); }
+.stat span { font-size: clamp(12px, 1.6vw, 16px); color: rgba(255,248,232,.85); }
+
+/* Beyond the circuit */
+.routes-section { position: relative; padding: 110px 7vw 100px; background: #24110b; color: var(--cream); overflow: hidden; }
+.routes-section::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 85% 10%, rgba(255,153,51,.18), transparent 42%), radial-gradient(ellipse at 5% 100%, rgba(224,80,14,.16), transparent 40%); pointer-events: none; }
+.routes-inner { position: relative; max-width: 980px; margin: 0 auto; text-align: center; }
+.routes-section h2 { margin: 0; font: 400 clamp(36px, 5vw, 66px)/1.05 var(--serif); letter-spacing: -.04em; }
+.routes-section h2 em { color: var(--saffron); }
+.routes-intro { max-width: 640px; margin: 22px auto 0; color: rgba(255,248,232,.82); font-size: 16px; line-height: 1.75; }
+.route-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 36px 0 0; padding: 0; list-style: none; }
+.route-chips a { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 20px; border: 1px solid rgba(255,200,120,.5); border-radius: 999px; color: var(--cream); font-size: 15px; background: rgba(255,248,232,.05); transition: background .25s, color .25s, transform .25s; }
+.route-chips a i { color: #ffc98a; font-style: normal; }
+.route-chips a b { font-weight: 700; }
+.route-chips a:hover { background: var(--saffron); color: #24160d; transform: translateY(-2px); }
+.route-chips a:hover i { color: #24160d; }
+
+/* Why us */
+.why-section { padding: 110px 7vw 100px; background: var(--paper); }
+.why-inner { max-width: 1180px; margin: 0 auto; }
+.why-section h2 { margin: 0 0 40px; color: var(--maroon); font: 400 clamp(36px, 5vw, 64px)/1.05 var(--serif); letter-spacing: -.04em; text-align: center; }
+.why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.why-card { height: 100%; padding: 26px 22px 28px; border: 1px solid var(--line); border-radius: 16px; background: #fffaf0; box-shadow: 0 14px 34px rgba(80,40,20,.08); transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s; }
+.why-card:hover { transform: translateY(-6px); box-shadow: 0 22px 46px rgba(80,40,20,.16); }
+.why-icon { display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: 18px; border-radius: 14px; background: linear-gradient(135deg, #ffb24d, var(--saffron)); color: #3a170f; }
+.why-card h3 { margin: 0 0 8px; color: var(--maroon); font: 700 19px/1.25 var(--serif); }
+.why-card p { margin: 0; color: #5a4636; font-size: 15px; line-height: 1.65; }
+.why-section .section-call p { color: #5a4636; }
+
+@media (max-width: 1000px) { .why-grid { grid-template-columns: repeat(2, 1fr); } .package-card, .package-card:last-child { min-height: 470px; } }
+@media (max-width: 760px) {
+  .stats-section { padding: 46px 18px 54px; }
+  .stat + .stat { border-left-width: 1px; }
+  .routes-section, .why-section { padding: 74px 22px 70px; }
+  .why-grid { grid-template-columns: 1fr; }
+  .section-call { margin-top: 34px; }
+  .package-card, .package-card:last-child { min-height: 440px; }
+  .package-call { margin-left: 0; display: flex; width: fit-content; }
+  .fleet-info { flex-wrap: wrap; }
+  .call-now-lg { width: 100%; max-width: 360px; }
+  .hero-actions .call-now-lg { max-width: none; }
+  .mobile-contact-bar { grid-template-columns: 1.5fr 1fr; padding: 8px; border-color: rgba(255,200,120,.5); }
+  .mobile-contact-bar a.bar-call { min-height: 54px; gap: 10px; border-radius: 999px; color: #fff; font-size: 17px; font-weight: 800; background: linear-gradient(135deg, var(--call-a), var(--call-b)); border: 2px solid rgba(255,214,150,.9); animation: call-pulse 2.2s ease-out infinite; }
+  .mobile-contact-bar a.bar-call .call-now-icon { width: 32px; height: 32px; }
+  .mobile-contact-bar a.bar-wa { min-height: 54px; border-radius: 999px; background: transparent; border: 1px solid rgba(255,248,232,.45); color: var(--cream); font-weight: 600; }
+}
+@media (prefers-reduced-motion: reduce) { .call-now, .call-now-icon, .mobile-contact-bar a.bar-call { animation: none; } .call-now:hover { transform: none; } }
+
+.package-card { min-height: 470px; }
+[data-lite] .call-now, [data-lite] .call-now-icon { animation: none; }
+
+.fleet-info { flex-direction: column; align-items: stretch; gap: 14px; }
+.fleet-info .call-now { width: 100%; }
+.fleet-info h3 { font-size: 26px; }
+
+@media (max-width: 760px) { .stats-grid { gap: 4px; } .stat { padding: 4px 2px; } .stat b { font-size: 26px; } .stat span { font-size: 12px; } }

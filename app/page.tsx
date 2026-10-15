@@ -4,7 +4,7 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import gsap from "gsap";
-import { ArrowDown, ArrowRight, ArrowUpRight, Check, MapPin, Menu, Phone, X } from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUpRight, Check, Headset, MapPin, Menu, Phone, ShieldCheck, Sparkles, UserCheck, X } from "lucide-react";
 import { GoldDust } from "@/components/motion/GoldDust";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { ParallaxImage } from "@/components/motion/ParallaxImage";
@@ -12,6 +12,7 @@ import { routes } from "@/lib/routes";
 import { Reveal } from "@/components/motion/Reveal";
 import { ScrollPin } from "@/components/motion/ScrollPin";
 import { Button } from "@/components/ui/button";
+import { CallNow } from "@/components/site/CallNow";
 
 const phone = "+919763747437";
 const wa = `https://wa.me/919763747437?text=${encodeURIComponent("Hello, I'm planning a trip from Solapur.\nDestination:\nTravel date:\nPreferred car:\nPlease share route availability and a quote.")}`;
@@ -28,6 +29,8 @@ const fleet = [
   { name: "Ertiga", file: "/fleet/Ertiga.webp", alt: "Maruti Ertiga seven-seater available with a driver from Solapur" },
   { name: "Toyota Innova Crysta", file: "/fleet/Innova_crysta.webp", alt: "Toyota Innova Crysta available with a driver from Solapur" },
   { name: "Cruiser", file: "/fleet/Cruiser.webp", alt: "Cruiser group vehicle available with a driver from Solapur" },
+  { name: "Tempo Traveller", file: "/fleet/Tempo_Traveller.webp", alt: "Force Tempo Traveller for group trips, available with a driver from Solapur" },
+  { name: "Urbania", file: "/fleet/Urbania.webp", alt: "Force Urbania group van, available with a driver from Solapur" },
 ];
 
 function Header() {
@@ -44,7 +47,7 @@ function Header() {
     <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
       <a className="brand" href="#top" aria-label="Shri Samarth Cabs home"><span className="brand-seal"><Image src="/brand/logo-mark.webp" alt="Shri Samarth Cabs logo: Swami Samarth" width={48} height={48} /></span><span>Shri Samarth <b>Cabs</b><small>Solapur · Maharashtra</small></span></a>
       <nav className="desktop-nav" aria-label="Main navigation">{links.map((link) => <a key={link.href} href={link.href}>{link.label}<i /></a>)}</nav>
-      <div className="nav-actions"><a className="nav-call" href={`tel:${phone}`} aria-label="Call Shri Samarth Cabs"><Phone size={15} /> <span>Call</span></a><MagneticButton className="nav-whatsapp" href={wa} target="_blank" rel="noopener">WhatsApp <ArrowUpRight size={15} /></MagneticButton></div>
+      <div className="nav-actions"><CallNow size="nav" where="header" /><MagneticButton className="nav-whatsapp" href={wa} target="_blank" rel="noopener">WhatsApp <ArrowUpRight size={15} /></MagneticButton></div>
       <Button variant="outline" className="menu-toggle" onClick={() => setOpen(!open)} aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open}>{open ? <X /> : <Menu />}</Button>
     </header>
     <AnimatePresence>{open && <motion.nav className="mobile-menu" initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} aria-label="Mobile navigation">{links.map((link) => <a key={link.href} href={link.href} onClick={() => setOpen(false)}>{link.label}<ArrowUpRight size={16} /></a>)}<a href="#circuit" onClick={() => setOpen(false)}>The circuit</a><a href="#packages" onClick={() => setOpen(false)}>Trip options</a><a href="#fleet" onClick={() => setOpen(false)}>Our cars</a><a href={`tel:${phone}`} onClick={() => setOpen(false)}>Call Shri Samarth Cabs</a><a href={wa} target="_blank" rel="noopener" onClick={() => setOpen(false)}>WhatsApp enquiry</a></motion.nav>}</AnimatePresence>
@@ -83,8 +86,8 @@ function Hero() {
       <h1><Words text="Pilgrimage travel" start={.5} /><br /><em><Words text="from Solapur." start={.8} /></em></h1>
       <motion.p className="hero-description" initial={reduce ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .85, duration: .7 }}>Driver-included car travel from Solapur. Share your destination and date; we’ll confirm the route and your quote.</motion.p>
       <motion.div className="hero-actions" initial={reduce ? false : { y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ type: "spring", stiffness: 90, damping: 18, delay: 1.05 }}>
-        <a className="booking-submit hero-cta" href={wa} target="_blank" rel="noopener">WhatsApp for a trip quote <ArrowUpRight size={16} /></a>
-        <a className="hero-call" href={`tel:${phone}`}><Phone size={16} /> Call +91 97637 47437</a>
+        <CallNow size="lg" where="hero" />
+        <a className="hero-call" href={wa} target="_blank" rel="noopener">WhatsApp for a trip quote <ArrowUpRight size={16} /></a>
       </motion.div>
       <div className="hero-trust"><span><Check size={14} /> Driver included</span><span><Check size={14} /> Call or WhatsApp</span><span><Check size={14} /> Quote confirmed directly</span></div>
     </div>
@@ -92,6 +95,11 @@ function Hero() {
     <div className="hero-side-note">A JOURNEY MADE FOR THE DARSHAN</div>
   </section>
   <div className="chant-band" aria-hidden="true"><div className="chant-track">{[0, 1].map((n) => <div className="chant-set" key={n}>{["श्री स्वामी समर्थ", "जय तुळजाभवानी", "जय हरी विठ्ठल", "श्री गुरुदेव दत्त"].map((chant) => <span key={chant}>{chant}<i>✦</i></span>)}</div>)}</div></div></>;
+}
+
+function Stats() {
+  const items = [{ n: "5+", l: "Years on the road" }, { n: "5,000+", l: "Travellers served" }, { n: "20,000+", l: "Trips completed" }];
+  return <section className="stats-section" aria-label="Shri Samarth Cabs in numbers"><div className="stats-inner"><div className="stats-grid">{items.map((i) => <div className="stat" key={i.l}><b>{i.n}</b><span>{i.l}</span></div>)}</div><div className="section-call"><p>Talk to a real person in Solapur. We pick up, confirm the route and give you a quote.</p><CallNow size="lg" where="numbers" /></div></div></section>;
 }
 
 function Circuit() {
@@ -110,7 +118,7 @@ function Circuit() {
       <span className="dham-no">{item.number}</span>
       <span className="dham-info"><span className="dham-local">{item.local}</span><strong>{item.title}</strong><small><MapPin size={12} /> {item.distance} from Solapur</small></span>
     </a></Reveal>)}</div>
-    <div className="circuit-options">{cards.map((card) => <Reveal key={card.n}><article className="circuit-option"><span className="option-no">{card.n}</span><div><span className="option-tag">{card.tag}</span><h3>{card.name}</h3><p>{card.text}</p></div><ArrowUpRight className="option-arrow" size={17} /></article></Reveal>)}</div>
+    <div className="section-call section-call-light"><p>Not sure which temple first? Call and we will plan it with you.</p><CallNow size="lg" where="circuit" /></div><div className="circuit-options">{cards.map((card) => <Reveal key={card.n}><article className="circuit-option"><span className="option-no">{card.n}</span><div><span className="option-tag">{card.tag}</span><h3>{card.name}</h3><p>{card.text}</p></div><ArrowUpRight className="option-arrow" size={17} /></article></Reveal>)}</div>
   </section>;
 }
 
@@ -132,7 +140,7 @@ function TempleStory({ item }: { item: typeof dham[number] }) {
       <div className="temple-still-frame" ref={imageReveal}><ParallaxImage src={item.image} alt={item.imageAlt} className="temple-still-image" sizes="(max-width: 768px) 100vw, 70vw" quality={92} /></div>
       <div className="temple-overlay" />
     </div>
-    <div className="temple-story-inner"><div className="temple-index">{item.number} <span>/ PILGRIMAGE STOP</span></div><div className="temple-story-copy"><p className="eyebrow">SOLAPUR · {item.number} OF 04</p><p className="temple-local">{item.local}</p><h2>{item.title}</h2><p>{item.descriptor}</p><p className="temple-matters">{routes.find((r) => r.id === item.id)?.matters[0].split(". ")[0]}.</p><p className="temple-nearby">{routes.find((r) => r.id === item.id)?.nearby}</p><div className="temple-facts"><a href={item.mapsUrl} target="_blank" rel="noopener noreferrer" aria-label={`Open Google Maps driving route from Solapur to ${item.location}`}><MapPin size={15} /> Distance from Solapur <b>{item.distance} · Google Maps</b><ArrowUpRight size={13} /></a></div><a href={`${wa}%0ADestination%3A%20${encodeURIComponent(item.location)}`} className="text-link" target="_blank" rel="noopener">Ask about this destination <ArrowUpRight size={16} /></a><a href={`/solapur-to-${item.id}-taxi`} className="text-link">Solapur to {item.id.charAt(0).toUpperCase() + item.id.slice(1)} taxi details <ArrowUpRight size={16} /></a></div></div>
+    <div className="temple-story-inner"><div className="temple-index">{item.number} <span>/ PILGRIMAGE STOP</span></div><div className="temple-story-copy"><p className="eyebrow">SOLAPUR · {item.number} OF 04</p><p className="temple-local">{item.local}</p><h2>{item.title}</h2><p>{item.descriptor}</p><p className="temple-matters">{routes.find((r) => r.id === item.id)?.matters[0].split(". ")[0]}.</p><p className="temple-nearby">{routes.find((r) => r.id === item.id)?.nearby}</p><div className="temple-facts"><a href={item.mapsUrl} target="_blank" rel="noopener noreferrer" aria-label={`Open Google Maps driving route from Solapur to ${item.location}`}><MapPin size={15} /> Distance from Solapur <b>{item.distance} · Google Maps</b><ArrowUpRight size={13} /></a></div><div className="story-call"><CallNow size="md" where={`temple-${item.id}`} /></div><a href={`${wa}%0ADestination%3A%20${encodeURIComponent(item.location)}`} className="text-link" target="_blank" rel="noopener">Ask about this destination <ArrowUpRight size={16} /></a><a href={`/solapur-to-${item.id}-taxi`} className="text-link">Solapur to {item.id.charAt(0).toUpperCase() + item.id.slice(1)} taxi details <ArrowUpRight size={16} /></a></div></div>
   </ScrollPin>;
 }
 
@@ -142,7 +150,22 @@ function Packages() {
     { id: "02", title: "Tuljapur + Pandharpur", time: "ONE DAY", href: "/packages/tuljapur-pandharpur-one-day", note: "Pilgrimage package. Stops, timings, inclusions, and final quote confirmed directly.", art: "package-art-2" },
     { id: "03", title: "Four-destination circuit", time: "TWO DAYS", href: "/packages/four-temple-two-day-circuit", note: "Includes Solapur local darshan with the circuit. Overnight plan and price confirmed directly.", art: "package-art-3" },
   ];
-  return <section className="packages-section" id="packages"><div className="section-heading centered"><p className="eyebrow">Pilgrimage trip options</p><h2>Plan around what<br /><em>matters to you.</em></h2><p>Tell us your dates and group size. We’ll discuss the trip details and provide a quote directly.</p></div><div className="package-grid">{packages.map((item) => <Reveal key={item.id}><article className={`package-card ${item.art}`}><div className="package-topline"><span>{item.id} / CIRCUIT</span><span className="package-duration">{item.time}</span></div><div className="package-motif" aria-hidden="true"><span className="motif-sun"/><span className="motif-horizon"/><span className="motif-road"/></div><div className="package-content"><h3>{item.title}</h3><p>{item.note}</p><a className="package-details" href={item.href}>Trip details</a><div className="package-bottom"><span className="package-price">Package quote<br /><b>Ask us</b></span><a href={`${wa}%0AInterested%20in%3A%20${encodeURIComponent(item.title)}`} target="_blank" rel="noopener" aria-label={`Ask for a quote for ${item.title}`}><ArrowUpRight size={19} /></a></div></div></article></Reveal>)}</div><p className="package-disclaimer">Package totals depend on dates and group size. We confirm the itinerary and quote directly.</p></section>;
+  return <section className="packages-section" id="packages"><div className="section-heading centered"><p className="eyebrow">Pilgrimage trip options</p><h2>Plan around what<br /><em>matters to you.</em></h2><p>Tell us your dates and group size. We’ll discuss the trip details and provide a quote directly.</p></div><div className="package-grid">{packages.map((item) => <Reveal key={item.id}><article className={`package-card ${item.art}`}><div className="package-topline"><span>{item.id} / CIRCUIT</span><span className="package-duration">{item.time}</span></div><div className="package-motif" aria-hidden="true"><span className="motif-sun"/><span className="motif-horizon"/><span className="motif-road"/></div><div className="package-content"><h3>{item.title}</h3><p>{item.note}</p><a className="package-details" href={item.href}>Trip details</a><CallNow size="sm" where={`package-${item.id}`} className="package-call" /><div className="package-bottom"><span className="package-price">Package quote<br /><b>Ask us</b></span><a href={`${wa}%0AInterested%20in%3A%20${encodeURIComponent(item.title)}`} target="_blank" rel="noopener" aria-label={`Ask for a quote for ${item.title}`}><ArrowUpRight size={19} /></a></div></div></article></Reveal>)}</div><p className="package-disclaimer">Package totals depend on dates and group size. We confirm the itinerary and quote directly.</p><div className="section-call section-call-light"><CallNow size="lg" where="packages" /></div></section>;
+}
+
+function Routes() {
+  const places = ["Kolhapur", "Pune", "Mumbai", "Satara", "Sangli"];
+  return <section className="routes-section" id="routes"><div className="routes-inner"><Reveal><p className="eyebrow">Beyond the temple circuit</p><h2>Solapur taxi for<br /><em>any outstation trip.</em></h2><p className="routes-intro">Airport drops, family visits, business travel or a long weekend: book a Solapur to Pune cab, a Solapur to Mumbai taxi, or a ride to Kolhapur, Satara and Sangli. Tell us where, and we confirm the route and the fare.</p></Reveal><ul className="route-chips">{places.map((place) => <li key={place}><a href={`${wa}%0ADestination%3A%20${encodeURIComponent(place)}`} target="_blank" rel="noopener" aria-label={`Ask for a Solapur to ${place} taxi quote on WhatsApp`}>Solapur <i>to</i> <b>{place}</b><ArrowUpRight size={15} /></a></li>)}</ul><div className="section-call"><CallNow size="lg" where="routes" /></div></div></section>;
+}
+
+function WhyUs() {
+  const points = [
+    { icon: Sparkles, title: "Clean, comfortable cars", text: "Well-kept vehicles for a calm journey to the holy places." },
+    { icon: UserCheck, title: "Drivers who know the route", text: "Experienced drivers who know temple timings, roads and local customs." },
+    { icon: Headset, title: "Call anytime", text: "One number for every travel question, before and during your trip." },
+    { icon: ShieldCheck, title: "Quote before you travel", text: "We confirm the route and the fare with you directly, up front." },
+  ];
+  return <section className="why-section" id="why"><div className="why-inner"><Reveal><p className="eyebrow">Why families choose us</p><h2>Travel that feels<br /><em>looked after.</em></h2></Reveal><div className="why-grid">{points.map(({ icon: Icon, title, text }) => <Reveal key={title}><article className="why-card"><span className="why-icon"><Icon size={24} /></span><h3>{title}</h3><p>{text}</p></article></Reveal>)}</div><div className="section-call"><CallNow size="lg" where="why-us" /></div></div></section>;
 }
 
 function Fleet() {
@@ -157,20 +180,22 @@ function Fleet() {
     const itemWidth = track.current.querySelector(".fleet-card")?.clientWidth ?? 1;
     setActive(Math.min(fleet.length - 1, Math.max(0, Math.round(track.current.scrollLeft / (itemWidth + 20)))));
   };
-  return <section className="fleet-section" id="fleet"><div className="fleet-heading"><div><p className="eyebrow">A car for the way you travel</p><h2>Choose your<br /><em>ride for the road.</em></h2></div><p>Four car options, each with a driver. Share your route for a trip quote.</p></div><div className="fleet-track" ref={track} onPointerDown={(e) => { dragStart.current = e.clientX; dragOrigin.current = track.current?.scrollLeft ?? 0; e.currentTarget.setPointerCapture(e.pointerId); }} onPointerMove={dragMove} onPointerUp={() => { dragStart.current = 0; }} onPointerCancel={() => { dragStart.current = 0; }}>
-      {fleet.map((car, index) => <article className="fleet-card" key={car.name}><div className="fleet-card-top"><span>0{index + 1} / 04</span><span>DRIVER INCLUDED</span></div><div className="fleet-image"><ParallaxImage src={car.file} alt={car.alt} sizes="(max-width: 760px) 87vw, 33vw" quality={90} /></div><div className="fleet-info"><div><h3>{car.name}</h3><p>Driver included</p></div></div></article>)}
+  return <section className="fleet-section" id="fleet"><div className="fleet-heading"><div><p className="eyebrow">A car for the way you travel</p><h2>Choose your<br /><em>ride for the road.</em></h2></div><p>Six vehicles, from a Dzire to a group van, each with a driver. Call for a trip quote.</p></div><div className="fleet-track" ref={track} onPointerDown={(e) => { dragStart.current = e.clientX; dragOrigin.current = track.current?.scrollLeft ?? 0; e.currentTarget.setPointerCapture(e.pointerId); }} onPointerMove={dragMove} onPointerUp={() => { dragStart.current = 0; }} onPointerCancel={() => { dragStart.current = 0; }}>
+      {fleet.map((car, index) => <article className="fleet-card" key={car.name}><div className="fleet-card-top"><span>0{index + 1} / 0{fleet.length}</span><span>DRIVER INCLUDED</span></div><div className="fleet-image"><ParallaxImage src={car.file} alt={car.alt} sizes="(max-width: 760px) 87vw, 33vw" quality={90} /></div><div className="fleet-info"><div><h3>{car.name}</h3><p>Driver included</p></div><CallNow size="sm" where={`fleet-${car.name}`} /></div></article>)}
     </div><div className="fleet-controls"><div className="fleet-pagination">{fleet.map((car, i) => <button key={car.name} aria-label={`Show ${car.name}`} aria-current={active === i} onClick={() => { if (track.current) { const width = track.current.querySelector(".fleet-card")?.clientWidth ?? 0; track.current.scrollTo({ left: i * (width + 20), behavior: "smooth" }); setActive(i); } }} />)}</div><span>DRAG TO EXPLORE <ArrowRight size={15} /></span></div></section>;
 }
 
 const reviews = [
   { quote: "Our outstation family trip was perfectly arranged. Budget-friendly rates and on-time pickup made the journey stress-free. Definitely recommending to others!", name: "Riya T." },
   { quote: "We booked for a corporate team outing. Excellent service with great comfort and professional driving. Everyone appreciated the smooth travel experience.", name: "Kunal P." },
+  { quote: "The booking process was easy and the support team guided us very well. Safe driving and clean vehicle throughout the journey.", name: "Neha K." },
   { quote: "Affordable pricing and top-quality service. The driver had good route knowledge, which saved us time. Will surely travel again with you!", name: "Harish C." },
+  { quote: "Our weekend trip was super comfortable. The traveller was well-maintained and had premium features. Highly satisfied with the experience!", name: "Shruti M." },
 ];
 function Testimonials() {
   const [loop, setLoop] = useState(false);
   useEffect(() => setLoop(true), []);
-  return <section className="reviews-section"><div className="review-wave" aria-hidden="true"><svg viewBox="0 0 1440 160" preserveAspectRatio="none"><path d="M0 60 C210 150 300 20 520 65 S830 155 1060 62 S1300 30 1440 90 V160 H0Z"/><path d="M0 95 C190 10 360 150 560 94 S860 15 1070 98 S1280 120 1440 48 V160 H0Z"/></svg></div><div className="reviews-inner"><Reveal><div className="review-heading"><p className="eyebrow">Words from the road</p><h2>Shared by travellers.</h2><p>Customer testimonials from our earlier website.</p></div></Reveal><div className="review-marquee" aria-label="Customer testimonials"><div className="review-track">{(loop ? [...reviews, ...reviews] : reviews).map((review, i) => <figure className="review-card" key={`${review.name}-${i}`} aria-hidden={i >= reviews.length ? true : undefined}><span className="review-quote-mark">“</span><blockquote>{review.quote}</blockquote><figcaption><span>{review.name}</span><small>Customer testimonial</small></figcaption></figure>)}</div></div></div></section>;
+  return <section className="reviews-section"><div className="review-wave" aria-hidden="true"><svg viewBox="0 0 1440 160" preserveAspectRatio="none"><path d="M0 60 C210 150 300 20 520 65 S830 155 1060 62 S1300 30 1440 90 V160 H0Z"/><path d="M0 95 C190 10 360 150 560 94 S860 15 1070 98 S1280 120 1440 48 V160 H0Z"/></svg></div><div className="reviews-inner"><Reveal><div className="review-heading"><p className="eyebrow">Words from the road</p><h2>Shared by travellers.</h2><p>Customer testimonials from our earlier website.</p></div></Reveal><div className="section-call section-call-light review-call"><CallNow size="md" where="reviews" /></div><div className="review-marquee" aria-label="Customer testimonials"><div className="review-track">{(loop ? [...reviews, ...reviews] : reviews).map((review, i) => <figure className="review-card" key={`${review.name}-${i}`} aria-hidden={i >= reviews.length ? true : undefined}><span className="review-quote-mark">“</span><blockquote>{review.quote}</blockquote><figcaption><span>{review.name}</span><small>Customer testimonial</small></figcaption></figure>)}</div></div></div></section>;
 }
 
 function MobileContactBar() {
@@ -189,11 +214,11 @@ function MobileContactBar() {
     observer.observe(footer);
     return () => observer.disconnect();
   }, []);
-  return <AnimatePresence>{visible && <motion.div className="mobile-contact-bar" aria-label="Quick contact" initial={reduce ? false : { y: 64, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 64, opacity: 0 }} transition={{ duration: reduce ? 0 : .28, ease: [0.22, 1, .36, 1] }}><a href={`tel:${phone}`}><Phone size={16} /> Call</a><a href={wa} target="_blank" rel="noopener">WhatsApp <ArrowUpRight size={16} /></a></motion.div>}</AnimatePresence>;
+  return <AnimatePresence>{visible && <motion.div className="mobile-contact-bar" aria-label="Quick contact" initial={reduce ? false : { y: 64, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 64, opacity: 0 }} transition={{ duration: reduce ? 0 : .28, ease: [0.22, 1, .36, 1] }}><a className="bar-call" href={`tel:${phone}`} data-call-from="sticky-bar"><span className="call-now-icon" aria-hidden="true"><Phone size={18} strokeWidth={2.4} /></span> Call Now</a><a className="bar-wa" href={wa} target="_blank" rel="noopener">WhatsApp <ArrowUpRight size={16} /></a></motion.div>}</AnimatePresence>;
 }
 
 function Footer() {
-  return <footer className="footer" id="contact"><div className="footer-silhouette" aria-hidden="true"><span className="temple-tower tower-a"/><span className="temple-tower tower-b"/><span className="temple-dome"/></div><div className="footer-content"><Reveal><p className="eyebrow">Your next journey starts here</p><h2>Chala, Darshan<br /><em>Karuya?</em></h2><p>Share your destination and travel date. Call or WhatsApp Shri Samarth Cabs to discuss route availability and get a quote.</p><div className="footer-actions"><MagneticButton className="footer-cta" href={wa} target="_blank" rel="noopener">WhatsApp to plan your trip <ArrowUpRight size={18} /></MagneticButton><a className="footer-call" href={`tel:${phone}`}><Phone size={16} /> +91 97637 47437</a></div></Reveal></div><nav className="footer-links" aria-label="Footer"><a href="/solapur-to-tuljapur-taxi">Solapur to Tuljapur</a><a href="/solapur-to-akkalkot-taxi">Solapur to Akkalkot</a><a href="/solapur-to-pandharpur-taxi">Solapur to Pandharpur</a><a href="/solapur-to-gangapur-taxi">Solapur to Gangapur</a><a href="/packages/akkalkot-gangapur-one-day">Akkalkot and Gangapur trip</a><a href="/packages/tuljapur-pandharpur-one-day">Tuljapur and Pandharpur trip</a><a href="/packages/four-temple-two-day-circuit">Two-day circuit</a><a href="/cars">Our cars</a><a href="/about">About</a><a href="/faq">FAQ</a><a href="/contact">Contact</a><a href="/guides/solapur-temple-trip-planning">Temple trip guide</a><a href="/guides/which-car-for-your-group">Car guide</a></nav><div className="footer-base"><a className="brand footer-brand" href="#top"><span className="brand-seal"><Image src="/brand/logo-mark.webp" alt="" aria-hidden="true" width={48} height={48} /></span><span>Shri Samarth <b>Cabs</b><small>Solapur · Maharashtra</small></span></a><span>Driver-included car travel from Solapur</span><a href="mailto:Swamicabs48@gmail.com">Swamicabs48@gmail.com</a><span>© 2026 Shri Samarth Cabs</span></div></footer>;
+  return <footer className="footer" id="contact"><div className="footer-silhouette" aria-hidden="true"><span className="temple-tower tower-a"/><span className="temple-tower tower-b"/><span className="temple-dome"/></div><div className="footer-content"><Reveal><p className="eyebrow">Your next journey starts here</p><h2>Chala, Darshan<br /><em>Karuya?</em></h2><p>Share your destination and travel date. Call or WhatsApp Shri Samarth Cabs to discuss route availability and get a quote.</p><div className="footer-actions"><MagneticButton className="footer-cta" href={wa} target="_blank" rel="noopener">WhatsApp to plan your trip <ArrowUpRight size={18} /></MagneticButton><CallNow size="lg" where="footer" /></div></Reveal></div><nav className="footer-links" aria-label="Footer"><a href="/solapur-to-tuljapur-taxi">Solapur to Tuljapur</a><a href="/solapur-to-akkalkot-taxi">Solapur to Akkalkot</a><a href="/solapur-to-pandharpur-taxi">Solapur to Pandharpur</a><a href="/solapur-to-gangapur-taxi">Solapur to Gangapur</a><a href="/packages/akkalkot-gangapur-one-day">Akkalkot and Gangapur trip</a><a href="/packages/tuljapur-pandharpur-one-day">Tuljapur and Pandharpur trip</a><a href="/packages/four-temple-two-day-circuit">Two-day circuit</a><a href="/cars">Our cars</a><a href="/about">About</a><a href="/faq">FAQ</a><a href="/contact">Contact</a><a href="/guides/solapur-temple-trip-planning">Temple trip guide</a><a href="/guides/which-car-for-your-group">Car guide</a></nav><div className="footer-base"><a className="brand footer-brand" href="#top"><span className="brand-seal"><Image src="/brand/logo-mark.webp" alt="" aria-hidden="true" width={48} height={48} /></span><span>Shri Samarth <b>Cabs</b><small>Solapur · Maharashtra</small></span></a><span>Driver-included car travel from Solapur</span><a href="mailto:Swamicabs48@gmail.com">Swamicabs48@gmail.com</a><span>© 2026 Shri Samarth Cabs</span></div></footer>;
 }
 
 export default function Home() {
@@ -203,7 +228,7 @@ export default function Home() {
   return <>
     <AnimatePresence>{!loaded && <motion.div className="preloader" initial={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: .55 } }}><div className="preloader-inner"><svg className="bell" viewBox="0 0 64 72" fill="none" aria-hidden="true"><path d="M12 48h40l-5-8V27a15 15 0 0 0-30 0v13l-5 8Z"/><path d="M25 56a7 7 0 0 0 14 0M32 6v5"/></svg><p aria-label="Solapur to darshan">{"SOLAPUR TO DARSHAN".split("").map((letter, i) => <motion.span key={`${letter}-${i}`} aria-hidden="true" initial={reduce ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * .035, duration: .28 }}>{letter === " " ? "\u00a0" : letter}</motion.span>)}</p><div className="preloader-line"><i /></div></div></motion.div>}</AnimatePresence>
     <Header />
-    <main><Hero /><div className="intro-band"><div><span>BASED IN</span><strong>Solapur</strong></div><i /><div><span>CAR HIRE</span><strong>Driver included</strong></div><i /><div><span>TRAVEL</span><strong>Your chosen destination</strong></div><i /><div><span>ENQUIRE</span><strong>Call or WhatsApp</strong></div></div><Circuit /><section className="journey-heading" id="journey"><Reveal><p className="eyebrow">Four stops, one shared intention</p><h2>Make space for<br /><em>the moments between.</em></h2><p>Distances are Google Maps driving estimates from SPOT ON Nivant Lodge, Solapur; routes can change.</p></Reveal></section>{dham.map((item) => <TempleStory item={item} key={item.id} />)}<Packages /><Fleet /><Testimonials /></main>
+    <main><Hero /><div className="intro-band"><div><span>BASED IN</span><strong>Solapur</strong></div><i /><div><span>CAR HIRE</span><strong>Driver included</strong></div><i /><div><span>TRAVEL</span><strong>Your chosen destination</strong></div><i /><div><span>ENQUIRE</span><strong>Call or WhatsApp</strong></div></div><Stats /><Circuit /><section className="journey-heading" id="journey"><Reveal><p className="eyebrow">Four stops, one shared intention</p><h2>Make space for<br /><em>the moments between.</em></h2><p>Distances are Google Maps driving estimates from SPOT ON Nivant Lodge, Solapur; routes can change.</p></Reveal></section>{dham.map((item) => <TempleStory item={item} key={item.id} />)}<Packages /><Routes /><WhyUs /><Fleet /><Testimonials /></main>
     <Footer />
     <MobileContactBar />
   </>;
