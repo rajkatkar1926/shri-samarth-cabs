@@ -1,6 +1,6 @@
 import { Phone } from "lucide-react";
 
-const PHONE_HREF = "tel:+919763747437";
+const PHONE_HREF = "tel:+919511600787";
 
 type Props = {
   size?: "lg" | "md" | "sm" | "nav";
@@ -15,11 +15,11 @@ export function CallNow({ size = "md", where, label = "Call Now", className = ""
     <a
       className={`call-now call-now-${size} ${className}`.trim()}
       href={PHONE_HREF}
-      aria-label={`Call Shri Samarth Cabs now on +91 97637 47437 (${where})`}
+      aria-label={`Call Shri Samarth Cabs now on +91 95116 00787 (${where})`}
       data-call-from={where}
     >
       <span className="call-now-icon" aria-hidden="true"><Phone size={size === "sm" || size === "nav" ? 16 : 22} strokeWidth={2.4} /></span>
-      <span className="call-now-text"><b>{label}</b>{size === "sm" || size === "nav" ? null : <small>+91 97637 47437</small>}</span>
+      <span className="call-now-text"><b>{label}</b>{size === "sm" || size === "nav" ? null : <small>+91 95116 00787</small>}</span>
     </a>
   );
 }

@@ -1,10 +1,10 @@
 export const SITE_URL = "https://shrisamarthcabs.com";
-export const PHONE_TEL = "+919763747437";
-export const PHONE_DISPLAY = "+91 97637 47437";
+export const PHONE_TEL = "+919511600787";
+export const PHONE_DISPLAY = "+91 95116 00787";
 export const EMAIL = "Swamicabs48@gmail.com";
 
 export const waLink = (extra?: string) =>
-  `https://wa.me/919763747437?text=${encodeURIComponent(`Hello, I'm planning a trip from Solapur.\nDestination:\nTravel date:\nPreferred car:\nPlease share route availability and a quote.${extra ? `\n${extra}` : ""}`)}`;
+  `https://wa.me/919511600787?text=${encodeURIComponent(`Hello, I'm planning a trip from Solapur.\nDestination:\nTravel date:\nPreferred car:\nPlease share route availability and a quote.${extra ? `\n${extra}` : ""}`)}`;
 
 export const googleMapsRoute = (destination: string) =>
   `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent("SPOT ON Nivant Lodge, Solapur")}&destination=${encodeURIComponent(destination)}&travelmode=driving`;

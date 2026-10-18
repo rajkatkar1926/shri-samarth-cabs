@@ -61,7 +61,7 @@ export default function CarsPage() {
 
         <h2>Questions about our cars</h2>
         <FaqList items={faqs} />
-        <p className="pg-note">We do not publish fixed fares. Call or WhatsApp +91 97637 47437 and we confirm the car and the quote for your date.</p>
+        <p className="pg-note">We do not publish fixed fares. Call or WhatsApp +91 95116 00787 and we confirm the car and the quote for your date.</p>
       </article>
     </PageShell>
   );
