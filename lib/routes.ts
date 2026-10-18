@@ -54,7 +54,7 @@ export const routes: RouteInfo[] = [
       { q: "How far is Tuljapur from Solapur?", a: "About 44.9 km by the Google Maps driving route we use from central Solapur. Actual distance changes with your pickup point and route." },
       { q: "Can I visit Tuljapur and return to Solapur on the same day?", a: "Many pilgrims plan Tuljapur as a day trip because of the short distance. Tell us your date and we confirm how the day can be arranged." },
       { q: "Can I add Pandharpur to the same trip?", a: "Yes. We offer a one-day Tuljapur and Pandharpur package from Solapur, and we can also build a longer plan on request." },
-      { q: "How do I get a quote?", a: "Call or WhatsApp +91 97637 47437 with your date, pickup point and group size. We confirm the quote directly rather than publishing fixed fares." },
+      { q: "How do I get a quote?", a: "Call or WhatsApp +91 95116 00787 with your date, pickup point and group size. We confirm the quote directly rather than publishing fixed fares." },
     ],
   },
   {

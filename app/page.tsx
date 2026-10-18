@@ -14,8 +14,8 @@ import { ScrollPin } from "@/components/motion/ScrollPin";
 import { Button } from "@/components/ui/button";
 import { CallNow } from "@/components/site/CallNow";
 
-const phone = "+919763747437";
-const wa = `https://wa.me/919763747437?text=${encodeURIComponent("Hello, I'm planning a trip from Solapur.\nDestination:\nTravel date:\nPreferred car:\nPlease share route availability and a quote.")}`;
+const phone = "+919511600787";
+const wa = `https://wa.me/919511600787?text=${encodeURIComponent("Hello, I'm planning a trip from Solapur.\nDestination:\nTravel date:\nPreferred car:\nPlease share route availability and a quote.")}`;
 const googleMapsRoute = (destination: string) => `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent("SPOT ON Nivant Lodge, Solapur")}&destination=${encodeURIComponent(destination)}&travelmode=driving`;
 const dham = [
   { id: "tuljapur", number: "01", title: "Tulja Bhavani", local: "तुळजाभवानी", image: "/temples/tuljapur/2.webp", imageAlt: "Tulja Bhavani murti adorned with flowers", location: "Tuljapur", distance: "44.9 km", mapsUrl: googleMapsRoute("Shri Tuljabhavani Temple, Tuljapur"), descriptor: "A pilgrimage stop on the Tuljapur + Pandharpur day trip." },

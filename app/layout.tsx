@@ -26,7 +26,7 @@ const businessSchema = {
   name: "Shri Samarth Cabs",
   url: "https://shrisamarthcabs.com/",
   logo: "https://shrisamarthcabs.com/brand/logo-mark.webp",
-  telephone: "+91-9763747437",
+  telephone: "+91-9511600787",
   description: "Car hire with a driver from Solapur for pilgrimage trips to Tuljapur, Akkalkot, Gangapur and Pandharpur.",
   address: { "@type": "PostalAddress", addressLocality: "Solapur", addressRegion: "Maharashtra", addressCountry: "IN" },
   areaServed: ["Solapur", "Tuljapur", "Akkalkot", "Gangapur", "Pandharpur"].map((name) => ({ "@type": "City", name })),
