@@ -37,6 +37,6 @@ export const SITE_PAGES: SitePage[] = [
 
 // Google Ads tag. Leave ADS_ID empty until the owner's account gives the ID (format "AW-1234567890").
 // With it empty, no tag loads and no cookie notice shows. Labels come from each conversion action in Google Ads.
-export const ADS_ID = "";
-export const ADS_CALL_TAP_LABEL = "";
-export const ADS_WHATSAPP_TAP_LABEL = "";
+export const ADS_ID = "AW-18514159533";
+export const ADS_CALL_TAP_LABEL = "chlxCOX2g6sdEK3PnvxE";
+export const ADS_WHATSAPP_TAP_LABEL = "K8ShCOj2g6sdEK3PnvxE";
