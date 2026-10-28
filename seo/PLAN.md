@@ -5,7 +5,8 @@ Work folder: D:\Code\shri-samarth-cabs-seo (always `git pull` main first; work o
 Started: 28 Oct 2026. Rules: Orajic Local SEO + AEO Playbook v2 (skill `local-seo-aeo`).
 
 ## Confirmed facts (from Raj, 28 Oct 2026)
-- Office hours: 6 am to 10 pm (daily).
+- Service runs 24/7 (matches Maps "Open 24 hours"). Phone enquiry time is 6 am to 10 pm daily. Never write "open 6-10" as business hours; say "call enquiries 6 am to 10 pm".
+- Languages spoken: not confirmed, so not in the markup.
 - Google Maps listing: https://maps.app.goo.gl/uikh4dgqrKxwC76o9 (open it in the browser to read exact address + pin for the schema; never guess).
 - No social links given yet.
 
