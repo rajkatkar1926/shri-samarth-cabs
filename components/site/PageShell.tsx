@@ -103,8 +103,14 @@ export function Breadcrumb({ trail }: { trail: { name: string; path: string }[] 
 }
 
 export function FaqList({ items }: { items: { q: string; a: string }[] }) {
+  const ld = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({ "@type": "Question", name: item.q, acceptedAnswer: { "@type": "Answer", text: item.a } })),
+  };
   return (
     <div className="pg-faq">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       {items.map((item) => (
         <details key={item.q}>
           <summary>{item.q}</summary>

@@ -28,7 +28,33 @@ const businessSchema = {
   logo: "https://shrisamarthcabs.com/brand/logo-mark.webp",
   telephone: "+91-9511600787",
   description: "Car hire with a driver from Solapur for pilgrimage trips to Tuljapur, Akkalkot, Gangapur and Pandharpur.",
-  address: { "@type": "PostalAddress", addressLocality: "Solapur", addressRegion: "Maharashtra", addressCountry: "IN" },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Vijapur Rd, Kanchan Ganga Nagar, Saiful, Jule",
+    addressLocality: "Solapur",
+    addressRegion: "Maharashtra",
+    postalCode: "413008",
+    addressCountry: "IN",
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    opens: "00:00",
+    closes: "23:59",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+91-9511600787",
+    contactType: "reservations",
+    hoursAvailable: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: "06:00",
+      closes: "22:00",
+    },
+  },
+  hasMap:"https://maps.app.goo.gl/uikh4dgqrKxwC76o9",
+  sameAs: ["https://maps.app.goo.gl/uikh4dgqrKxwC76o9"],
   areaServed: ["Solapur", "Tuljapur", "Akkalkot", "Gangapur", "Pandharpur"].map((name) => ({ "@type": "City", name })),
 };
 
