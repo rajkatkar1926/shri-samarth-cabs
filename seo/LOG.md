@@ -25,3 +25,7 @@
 - Fixed phone-hours text on outstation hub: 7am to 10pm -> 6am to 10pm (matches what Raj confirmed).
 - Build passes, 12 new URLs, FAQ markup present, old phone number 97637 absent. Added to footer/menu and sitemap.
 - Not done: Maps listing fixes (name, category) still need Raj's yes.
+
+## 2026-10-28 (logo/favicon)
+- Raj: logo shows as grey globe, not visible to Google or AI. Cause: /favicon.ico was 404 (Google asks for it first), only one icon size, logo in schema was a 160px webp, no og:image. Fix on branch seo/2026-10-28-logo-favicon: favicon.ico + 48/96/192 icons, PNG logo in markup, og:image + image in markup. Not live until merged and deployed.
+- Still open: the artwork is a detailed portrait; unreadable at 16px. A simple bold mark would show better in Google results. Google also takes days/weeks to refresh a favicon; request re-indexing in Search Console.
