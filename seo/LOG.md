@@ -29,3 +29,5 @@
 ## 2026-10-28 (logo/favicon)
 - Raj: logo shows as grey globe, not visible to Google or AI. Cause: /favicon.ico was 404 (Google asks for it first), only one icon size, logo in schema was a 160px webp, no og:image. Fix on branch seo/2026-10-28-logo-favicon: favicon.ico + 48/96/192 icons, PNG logo in markup, og:image + image in markup. Not live until merged and deployed.
 - Still open: the artwork is a detailed portrait; unreadable at 16px. A simple bold mark would show better in Google results. Google also takes days/weeks to refresh a favicon; request re-indexing in Search Console.
+
+- PR 5 merged and deployed by hand; live check: favicon.ico 200, icons 200, sitemap now 30 pages, Shirdi page 200 (PR 4 pages included).
