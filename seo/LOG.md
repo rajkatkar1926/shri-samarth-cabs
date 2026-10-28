@@ -13,3 +13,7 @@
 - Not added on purpose: star rating (2 reviews, Google doesn't allow self-reviews markup for own business), map coordinates (not read, no guessing).
 - FLAGS for Maps listing (need Raj yes before changing): business name has "Solapur" appended and no spaces (should be exactly the real signboard name "Shri Samarth Cabs"); category "Car leasing service" -> primary should be "Taxi service" (add car rental as secondary).
 - (old note) Next fix (Thursday job #1): add FAQ markup to FAQ + route pages, and geo/hours/hasMap/sameAs to the business block. NEED from owner: exact office address pin, opening hours (24x7?), Maps listing link, any social links.
+
+## 2026-10-28 (deploy)
+- PR 3 merged 14:45 UTC. Site did NOT auto-deploy from the merge (last auto deploy was PR 2 on 27 Oct). Triggered deploy by hand in Dokploy app samarth-cabs-site (id Br8gvOtsTDtC6LahYmfJV, safe call application.deploy). Live and verified: FAQ markup, address, hours on the live pages.
+- LESSON: after every merge, trigger application.deploy and verify on the live page. Do not assume auto-deploy.
