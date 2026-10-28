@@ -9,11 +9,22 @@ export const metadata: Metadata = {
   title: "Solapur Cab Service | Shri Samarth Cabs",
   description: "Rent a car with a driver from Solapur for your chosen trip. Ask Shri Samarth Cabs about pilgrimage travel, route availability, and a quote.",
   applicationName: "Shri Samarth Cabs",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icons/icon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icons/icon-96.png", sizes: "96x96", type: "image/png" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
     title: "Shri Samarth Cabs | Car Rental with Driver from Solapur",
     description: "Driver-included car hire from Solapur. Call or WhatsApp to discuss your trip and get a quote.",
     url: "/",
     siteName: "Shri Samarth Cabs",
+    images: [{ url: "/hero/light.webp", width: 1672, height: 940, alt: "Shri Samarth Cabs, car hire with a driver from Solapur" }],
     locale: "en_IN",
     type: "website",
   },
@@ -25,7 +36,8 @@ const businessSchema = {
   "@id": "https://shrisamarthcabs.com/#business",
   name: "Shri Samarth Cabs",
   url: "https://shrisamarthcabs.com/",
-  logo: "https://shrisamarthcabs.com/brand/logo-mark.webp",
+  logo: "https://shrisamarthcabs.com/icons/icon-192.png",
+  image: "https://shrisamarthcabs.com/hero/light.webp",
   telephone: "+91-9511600787",
   description: "Car hire with a driver from Solapur for pilgrimage trips to Tuljapur, Akkalkot, Gangapur and Pandharpur.",
   address: {
