@@ -136,6 +136,42 @@ export const packages: PackageInfo[] = [
       { q: "Can I shorten it to one day?", a: "Yes. We offer two one-day trips: Akkalkot and Gangapur, and Tuljapur and Pandharpur." },
     ],
   },
+  {
+    slug: "shirdi-shani-shingnapur-trip",
+    name: "Shirdi + Shani Shingnapur",
+    duration: "Two days",
+    title: "Shirdi Shani Shingnapur Trip from Solapur | Shri Samarth Cabs",
+    description: "Shirdi and Shani Shingnapur trip from Solapur with a driver-included car. Call or WhatsApp Shri Samarth Cabs for the plan and quote.",
+    h1: "Shirdi and Shani Shingnapur trip from Solapur",
+    images: [{ src: "/fleet/Innova_crysta.webp", alt: "Toyota Innova Crysta cab for Shirdi and Shani Shingnapur trips from Solapur", w: 1024, h: 683 }],
+    intro: "This trip takes you from Solapur to Shirdi, the town of Sai Baba, and on to Shani Shingnapur, the Shani temple town, in a driver-included car. Both are long drives from Solapur, so we plan it as a two-day trip. We confirm the plan and the quote directly when you call or WhatsApp us.",
+    stops: [
+      { name: "Shirdi", text: "About 311 km from Solapur by the Google Maps route we use, roughly seven hours of driving without long stops. Devotees come for Sai Baba darshan." },
+      { name: "Shani Shingnapur", text: "About 260 km from Solapur by the Google Maps route we use, roughly five and a half hours of driving without long stops. Devotees come for Shani darshan." },
+    ],
+    shape: [
+      "Because both places are far from Solapur, we do not squeeze this into one day. A common plan is to drive out on day one, visit one temple and stay overnight, then visit the other and return. The order and the overnight stop depend on your dates and your group, so we agree them with you instead of fixing them here.",
+      "We do not print timings, because queues at both temples and traffic change from day to day. Darshan arrangements are set by each temple trust, so please check their official information for your visit.",
+    ],
+    suits: [
+      "Families and devotees who want Shirdi and Shani Shingnapur in one planned trip.",
+      "Groups who prefer a single driver for the whole journey.",
+      "Travellers who want the overnight stop and the order of the temples agreed in advance.",
+    ],
+    quote: [
+      "We do not list a fixed price for this trip. After you share your dates, group size, pickup point and car preference, we reply with the plan and the quote before you commit.",
+    ],
+    needs: ["Your two travel dates", "Pickup point in Solapur", "Group size, including elders and children", "Preferred car, or ask us to suggest one", "Your overnight preference, to be discussed with us"],
+    routes: [
+      { href: "/solapur-to-shirdi-taxi", label: "Solapur to Shirdi taxi" },
+      { href: "/guides/which-car-for-your-group", label: "Which car for your group" },
+    ],
+    faqs: [
+      { q: "Can Shirdi and Shani Shingnapur be done in one day?", a: "Both are far from Solapur, so we plan this as a two-day trip. Tell us your dates and we confirm what is practical." },
+      { q: "Is the driver included?", a: "Yes. Every car comes with a driver." },
+      { q: "How do I get the quote?", a: "Call or WhatsApp +91 95116 00787 with your dates, pickup point and group size. We confirm the quote directly rather than publishing fixed fares." },
+    ],
+  },
 ];
 
 export const packageBySlug = (slug: string) => packages.find((p) => p.slug === slug);

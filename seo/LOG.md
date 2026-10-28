@@ -17,3 +17,11 @@
 ## 2026-10-28 (deploy)
 - PR 3 merged 14:45 UTC. Site did NOT auto-deploy from the merge (last auto deploy was PR 2 on 27 Oct). Triggered deploy by hand in Dokploy app samarth-cabs-site (id Br8gvOtsTDtC6LahYmfJV, safe call application.deploy). Live and verified: FAQ markup, address, hours on the live pages.
 - LESSON: after every merge, trigger application.deploy and verify on the live page. Do not assume auto-deploy.
+
+## 2026-10-28 (new pages batch, at Raj's request: all backlog pages now)
+- Branch seo/2026-10-28-new-pages (NOT pushed, NOT merged, awaiting Raj's yes after preview).
+- 6 route pages: Shirdi (311 km), Vijayapura (100 km), Latur (122 km), Dharashiv (65.0 km), Sangli+Miraj (193 km, Sangli measured), Bengaluru (620 km). Distances read from Google Maps in the browser, same start point as existing pages.
+- 1 trip page: Shirdi + Shani Shingnapur (Shani Shingnapur 260 km, measured). 2 guides: Akkalkot darshan, Pandharpur wari tips. No timings, dates or fares printed.
+- Fixed phone-hours text on outstation hub: 7am to 10pm -> 6am to 10pm (matches what Raj confirmed).
+- Build passes, 12 new URLs, FAQ markup present, old phone number 97637 absent. Added to footer/menu and sitemap.
+- Not done: Maps listing fixes (name, category) still need Raj's yes.

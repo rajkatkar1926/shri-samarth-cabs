@@ -129,6 +129,50 @@ export const infoPages: InfoPage[] = [
       { h2: "Not sure? Ask us", paras: ["Tell us your group size, your date and the trip you have in mind, and we suggest a car. Every car comes with a driver, and we confirm the quote directly."], links: [{ href: "/cars", label: "See all four cars" }, { href: "/guides/solapur-temple-trip-planning", label: "How to plan a Solapur temple trip" }, { href: "/faq", label: "Common questions" }] },
     ],
   },
+  {
+    slug: "guides/akkalkot-swami-samarth-darshan-guide",
+    kind: "guide",
+    crumb: "Akkalkot darshan guide",
+    title: "Akkalkot Swami Samarth Darshan: How to Reach from Solapur | Shri Samarth Cabs",
+    description: "A practical guide to visiting Akkalkot for Swami Samarth darshan from Solapur: distance, how to plan the day and what to check before you go.",
+    h1: "Akkalkot Swami Samarth darshan: how to reach from Solapur",
+    eyebrow: "Pilgrim guide",
+    lead: "Akkalkot is the town of Shri Swami Samarth Maharaj and the nearest of the four Solapur pilgrimage stops. This guide covers the distance, how to plan the day and what to check before you leave.",
+    sections: [
+      { h2: "How far is Akkalkot from Solapur?", paras: ["Akkalkot is about 43.3 km from Solapur by the Google Maps driving route we use. The figure changes with your pickup point and route, but it makes Akkalkot an easy half-day or one-day trip."] },
+      { h2: "Darshan timings", paras: ["We do not print darshan or aarti timings here, because they are decided by the Vatavruksha Swami Maharaj Devasthan and can change on festival days. Please check the devasthan's official information for the day you plan to visit."] },
+      { h2: "Planning the day", paras: ["Start early where you can, because queues build during the day. If you also want Gangapur, plan a full day, since Gangapur is about 110 km from Solapur across the state border. Our Akkalkot and Gangapur one-day trip covers both.", "Dress modestly, carry a photo ID, and keep water and any regular medicines within easy reach, especially for elders."] },
+      { h2: "Getting there by cab", paras: ["A driver-included car takes you from your pickup point in Solapur to Akkalkot and waits during darshan. Tell us your date, group size and whether you return the same day, and we confirm the quote directly."] },
+      { h2: "Related trips and routes", links: [{ href: "/solapur-to-akkalkot-taxi", label: "Solapur to Akkalkot taxi" }, { href: "/packages/akkalkot-gangapur-one-day", label: "Akkalkot and Gangapur, one day" }, { href: "/guides/solapur-temple-trip-planning", label: "How to plan a temple trip" }] },
+    ],
+    faqs: [
+      { q: "How far is Akkalkot from Solapur?", a: "About 43.3 km by the Google Maps route we use from central Solapur." },
+      { q: "What are the darshan timings?", a: "They are set by the devasthan and can change on festival days, so please check their official information before you go." },
+      { q: "Can I visit Akkalkot and Gangapur together?", a: "Yes. We offer a one-day Akkalkot and Gangapur trip from Solapur. It is a long day." },
+    ],
+  },
+  {
+    slug: "guides/pandharpur-wari-travel-tips",
+    kind: "guide",
+    crumb: "Pandharpur wari travel tips",
+    title: "Pandharpur Ashadhi and Kartiki Wari Travel Tips from Solapur | Shri Samarth Cabs",
+    description: "Travel tips for visiting Pandharpur from Solapur during the Ashadhi and Kartiki wari seasons: planning ahead, timing and how to book a cab.",
+    h1: "Pandharpur Ashadhi and Kartiki wari: travel tips from Solapur",
+    eyebrow: "Pilgrim guide",
+    lead: "Pandharpur, the town of the Vitthal Rukmini temple, draws very large crowds around the Ashadhi and Kartiki wari seasons. This guide helps you plan a smoother trip from Solapur.",
+    sections: [
+      { h2: "How far is Pandharpur from Solapur?", paras: ["Pandharpur is about 69.2 km from Solapur by the Google Maps driving route we use. On a normal day that is a straightforward drive. During wari seasons, roads near the town and the temple area can be much slower."] },
+      { h2: "Plan around the crowds", paras: ["Ashadhi and Kartiki wari are among the busiest times in Pandharpur. Expect long queues and slow traffic near the town. Start early, allow extra time, and enquire with us well ahead of your date so we can confirm a car.", "We do not print wari dates or darshan timings here. Please check the temple committee's official information for the day you plan to visit."] },
+      { h2: "Travelling with elders and children", paras: ["Choose a roomier car such as the Ertiga or the Toyota Innova Crysta if you are travelling with elders, children or luggage. Keep water and any regular medicines within easy reach, and agree a clear meeting point with your driver before darshan."] },
+      { h2: "Booking a cab", paras: ["Tell us your date, pickup point, group size and whether you return the same day. We confirm the car and the quote directly. We do not publish fixed fares."] },
+      { h2: "Related trips and routes", links: [{ href: "/solapur-to-pandharpur-taxi", label: "Solapur to Pandharpur taxi" }, { href: "/packages/tuljapur-pandharpur-one-day", label: "Tuljapur and Pandharpur, one day" }, { href: "/guides/which-car-for-your-group", label: "Which car for your group" }] },
+    ],
+    faqs: [
+      { q: "How far is Pandharpur from Solapur?", a: "About 69.2 km by the Google Maps route we use from central Solapur." },
+      { q: "Should I book early for wari?", a: "Yes. Wari seasons are very busy, so enquire well ahead of your date and we confirm availability." },
+      { q: "Do you publish wari dates?", a: "No. Please check the temple committee's official information for dates and darshan arrangements." },
+    ],
+  },
 ];
 
 export const infoBySlug = (slug: string) => infoPages.find((p) => p.slug === slug);
