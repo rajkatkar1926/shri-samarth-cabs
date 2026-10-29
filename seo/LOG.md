@@ -1,5 +1,10 @@
 # SEO activity log - shrisamarthcabs.com
 
+## 2026-10-29 (Thu, Pune page)
+- Asked the other Instagram session (built the PR 4 pages) to report open work. Split: I own page upgrades, Maps and weekly checks; it owns new pages.
+- Pune page: added 2 FAQs (distance about 250 km via Mohol and Indapur; what to tell us to book). Facts were already on the page. Branch seo/2026-10-29-pune-upgrade.
+- FLAG for Raj: fleet is described two ways. Route pages say Dzire, Ertiga, Innova Crysta, Tempo Traveller, Urbania; FAQ and cars pages say Dzire, Ertiga, Innova Crysta, Cruiser. Need the true list. Not changed.
+
 ## 2026-10-28 (setup)
 - Site live (200). robots.txt allows Google, Bing, OpenAI and Perplexity crawlers. Sitemap live with 21 pages.
 - Routine created: Mon/Tue/Thu/Sat. Plan in seo/PLAN.md.
