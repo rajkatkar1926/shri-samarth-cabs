@@ -45,3 +45,6 @@ taxi in solapur / solapur outstation taxi / solapur to pune taxi / solapur to ak
 
 ## Existing pages to upgrade (Thursdays, in order)
 Home, solapur-outstation-taxi, solapur-to-pune-taxi, solapur-to-akkalkot-taxi, solapur-to-tuljapur-taxi, solapur-to-pandharpur-taxi, solapur-airport-taxi, cars, faq, packages (3), guides (2), remaining routes.
+
+## Access note
+- Search Console property sc-domain:shrisamarthcabs.com is owned by the swamicabs48 Google account (use the Chrome account switcher, index u/3). The built-in browser pane signs out when the app restarts. Never enter passwords.
