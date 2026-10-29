@@ -10,6 +10,12 @@ Started: 28 Oct 2026. Rules: Orajic Local SEO + AEO Playbook v2 (skill `local-se
 - Google Maps listing: https://maps.app.goo.gl/uikh4dgqrKxwC76o9 (open it in the browser to read exact address + pin for the schema; never guess).
 - No social links given yet.
 
+## Working agreements (from Raj, 28-29 Oct 2026)
+- Show a checked preview first, then push. Merge and deploy only on his yes; after a merge, run Dokploy application.deploy and verify live.
+- Standing yes: after pages go live, resubmit sitemap and Request indexing in Search Console (scheduled task Step 5). Do not double-submit pages another session already submitted.
+- Split of work: one session builds NEW pages; this routine does upgrades of existing pages, Maps and weekly checks.
+- Open fact to settle: fleet list differs between route pages (Tempo Traveller, Urbania) and FAQ/cars pages (Cruiser).
+
 ## Hard rules
 - Nothing goes live without Raj's yes. Sessions prepare; Raj approves; then PR + merge.
 - Never invent facts: prices, fares, cars, timings, reviews, awards. Use only what is in `lib/*.ts` or Raj confirmed. Unknown fact = ask, don't guess.
