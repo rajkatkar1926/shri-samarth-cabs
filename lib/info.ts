@@ -43,7 +43,7 @@ export const infoPages: InfoPage[] = [
     sections: [
       { h2: "What we do", paras: ["Our work is simple: a clean car, a driver who knows the roads, and a plan that fits your group. Most of our trips start in Solapur and go to one or more of the four temples on the Solapur circuit. We also take outstation trips on request, for example to cities such as Pune and Hyderabad.", "Every car comes with a driver. We do not offer self-drive hire."] },
       { h2: "How an enquiry works", list: ["You call or WhatsApp us on +91 95116 00787 with your date, pickup point in Solapur and group size.", "We reply with the trip plan, the car we suggest and the quote.", "We confirm the details directly with you before the trip. We do not publish fixed fares, because the right price depends on your date, group and plan."] },
-      { h2: "Our cars", paras: ["We offer the Swift Dzire, the Ertiga, the Toyota Innova Crysta and the Cruiser, all with a driver. You can see each one, and who it suits, on our cars page."], links: [{ href: "/cars", label: "See our cars" }] },
+      { h2: "Our cars", paras: ["We offer the Swift Dzire, the Ertiga, the Toyota Innova Crysta, the Cruiser, the Tempo Traveller and the Urbania, all with a driver. You can see each one, and who it suits, on our cars page."], links: [{ href: "/cars", label: "See our cars" }] },
       { h2: "Trips we run most often", links: tripLinks },
       { h2: "Routes from Solapur", links: routeLinks },
       { h2: "Get in touch", paras: ["The quickest way to reach us is a call or a WhatsApp message. Our contact page has the phone number, WhatsApp link and email."], links: [{ href: "/contact", label: "Contact Shri Samarth Cabs" }] },
@@ -83,7 +83,7 @@ export const infoPages: InfoPage[] = [
       { q: "Do you offer a two-day trip?", a: "Yes. Our two-day circuit covers all four temples along with local darshan in Solapur. The overnight plan is confirmed with you." },
       { q: "How do I get a quote?", a: "Call or WhatsApp +91 95116 00787 with your date, pickup point and group size. We confirm the quote directly." },
       { q: "Do you publish fixed prices?", a: "No. The right quote depends on your date, group size, car and plan, so we confirm it directly instead of printing a price that may not fit your trip." },
-      { q: "Which cars do you have?", a: "The Swift Dzire, the Ertiga, the Toyota Innova Crysta and the Cruiser, all with a driver." },
+      { q: "Which cars do you have?", a: "The Swift Dzire, the Ertiga, the Toyota Innova Crysta, the Cruiser, the Tempo Traveller and the Urbania, all with a driver." },
       { q: "What information do you need to quote a trip?", a: "Your date, pickup point in Solapur, destination, group size and preferred car. If you are unsure of the car, tell us your group size and we suggest one." },
       { q: "Can I combine temples in one trip?", a: "Yes. Common combinations are Tuljapur with Pandharpur, and Akkalkot with Gangapur. Our two-day circuit covers all four." },
       { q: "Is Gangapur in Maharashtra?", a: "No. The Dattatreya temple at Ganagapur is in Afzalpur taluk, Karnataka, so the trip crosses the state border. About 110 km from Solapur by the Google Maps route we use." },

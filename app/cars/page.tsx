@@ -5,7 +5,7 @@ import { Breadcrumb, Cta, FaqList, PageShell } from "@/components/site/PageShell
 import { waLink } from "@/lib/site";
 
 const title = "Cars with Driver in Solapur | Shri Samarth Cabs";
-const description = "Swift Dzire, Ertiga, Toyota Innova Crysta and Cruiser with a driver from Solapur. Call or WhatsApp Shri Samarth Cabs to pick the right car.";
+const description = "Swift Dzire, Ertiga, Toyota Innova Crysta, Cruiser, Tempo Traveller and Urbania with a driver from Solapur. Call or WhatsApp Shri Samarth Cabs to pick the right car.";
 
 export const metadata: Metadata = {
   title,
@@ -19,6 +19,8 @@ const cars = [
   { name: "Ertiga", file: "/fleet/Ertiga.webp", alt: "Maruti Ertiga seven-seater available with a driver from Solapur", seats: "A family car that usually seats 6 to 7 passengers.", suits: "A family with children or elders, or two small families travelling together. A sensible choice for a full day with some luggage." },
   { name: "Toyota Innova Crysta", file: "/fleet/Innova_crysta.webp", alt: "Toyota Innova Crysta available with a driver from Solapur", seats: "A roomy people carrier that usually seats up to 7 passengers.", suits: "Families who want more space on a long day, such as the Gangapur trip or the two-day circuit, and groups with senior members." },
   { name: "Cruiser", file: "/fleet/Cruiser.webp", alt: "Cruiser group vehicle available with a driver from Solapur", seats: "A larger group vehicle. Seating is confirmed directly for your date.", suits: "A bigger group, a joint family or a corporate outing that would otherwise need more than one car." },
+  { name: "Tempo Traveller", file: "/fleet/Tempo_Traveller.webp", alt: "Force Tempo Traveller for group trips, available with a driver from Solapur", seats: "A group van. Seating is confirmed directly for your date.", suits: "A larger group, a wedding party or an outing that would otherwise need more than one car." },
+  { name: "Urbania", file: "/fleet/Urbania.webp", alt: "Force Urbania group van, available with a driver from Solapur", seats: "A group van. Seating is confirmed directly for your date.", suits: "A larger group that wants a roomier van for a long trip, such as a family function or a corporate outing." },
 ];
 
 const faqs = [
@@ -36,7 +38,7 @@ export default function CarsPage() {
           <Breadcrumb trail={[{ name: "Cars", path: "/cars" }]} />
           <p className="eyebrow">Car hire with a driver</p>
           <h1>Cars with a driver in Solapur</h1>
-          <p className="pg-lead">Shri Samarth Cabs offers four cars with a driver for temple trips and outstation travel from Solapur: the Swift Dzire, the Ertiga, the Toyota Innova Crysta and the Cruiser. Tell us your group size and date, and we confirm the right car and your quote directly.</p>
+          <p className="pg-lead">Shri Samarth Cabs offers six vehicles with a driver for temple trips and outstation travel from Solapur: the Swift Dzire, the Ertiga, the Toyota Innova Crysta, the Cruiser, the Tempo Traveller and the Urbania. Tell us your group size and date, and we confirm the right car and your quote directly.</p>
           <Cta />
         </div>
       </section>

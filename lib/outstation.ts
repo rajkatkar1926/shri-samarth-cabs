@@ -141,11 +141,13 @@ export const outstationPages: OutstationInfo[] = [
     mapsLabel: "Open the Google Maps driving route to Pune",
     waExtra: "Destination: Pune",
     faqs: [
+      { q: "How far is Solapur from Pune by road?", a: "About 250 km by the Google Maps driving estimate, via Mohol and Indapur. The exact distance depends on your pickup and drop points." },
       { q: "How long does Solapur to Pune take by car?", a: "Usually four and a half to five hours without long stops. Traffic near Pune can add time." },
       { q: "Is the driver included?", a: "Yes. Every car goes with a driver." },
       { q: "Do you do Pune airport drops?", a: "Yes. Tell us the flight time and your pickup address and we plan the timing." },
       { q: "Can I book one way?", a: "Yes. One way and return trips are both possible. Say which when you call." },
       { q: "How do I get the fare?", a: "Call or WhatsApp. We confirm the quote directly for your date and car. We do not publish fixed fares." },
+      { q: "What do I need to tell you to book a Pune taxi?", a: "Your date, pickup point in Solapur, drop point in Pune, number of passengers and whether it is one way or return. Call or WhatsApp +91 95116 00787 and we confirm the quote." },
     ],
     related: others("solapur-to-pune-taxi"),
   },
