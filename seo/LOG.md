@@ -36,3 +36,5 @@
 - Still open: the artwork is a detailed portrait; unreadable at 16px. A simple bold mark would show better in Google results. Google also takes days/weeks to refresh a favicon; request re-indexing in Search Console.
 
 - PR 5 merged and deployed by hand; live check: favicon.ico 200, icons 200, sitemap now 30 pages, Shirdi page 200 (PR 4 pages included).
+
+- 2026-10-29: PR 6 merged + deployed by hand; live: Pune FAQ and six-car list on /cars. Google resubmit (Step 5) NOT done: Search Console not signed in in this browser pane. URLs to resubmit: /solapur-to-pune-taxi, /cars, /faq, /guides/solapur-temple-trip-planning.
