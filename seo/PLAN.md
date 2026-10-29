@@ -14,7 +14,7 @@ Started: 28 Oct 2026. Rules: Orajic Local SEO + AEO Playbook v2 (skill `local-se
 - Show a checked preview first, then push. Merge and deploy only on his yes; after a merge, run Dokploy application.deploy and verify live.
 - Standing yes: after pages go live, resubmit sitemap and Request indexing in Search Console (scheduled task Step 5). Do not double-submit pages another session already submitted.
 - Split of work: one session builds NEW pages; this routine does upgrades of existing pages, Maps and weekly checks.
-- Open fact to settle: fleet list differs between route pages (Tempo Traveller, Urbania) and FAQ/cars pages (Cruiser).
+- Fleet (confirmed by Raj 29 Oct): six vehicles with driver - Swift Dzire, Ertiga, Toyota Innova Crysta, Cruiser, Tempo Traveller, Urbania. Never invent seat counts; say "confirmed directly".
 
 ## Hard rules
 - Nothing goes live without Raj's yes. Sessions prepare; Raj approves; then PR + merge.
