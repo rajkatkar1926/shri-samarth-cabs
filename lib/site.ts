@@ -24,11 +24,13 @@ export const SITE_PAGES: SitePage[] = [
   { href: "/solapur-to-latur-taxi", label: "Solapur to Latur", group: "Routes" },
   { href: "/solapur-to-dharashiv-taxi", label: "Solapur to Dharashiv", group: "Routes" },
   { href: "/solapur-to-sangli-miraj-taxi", label: "Solapur to Sangli and Miraj", group: "Routes" },
+  { href: "/solapur-to-satara-taxi", label: "Solapur to Satara", group: "Routes" },
   { href: "/solapur-to-bengaluru-taxi", label: "Solapur to Bengaluru", group: "Routes" },
   { href: "/solapur-to-tuljapur-taxi", label: "Solapur to Tuljapur", group: "Routes" },
   { href: "/solapur-to-akkalkot-taxi", label: "Solapur to Akkalkot", group: "Routes" },
   { href: "/solapur-to-pandharpur-taxi", label: "Solapur to Pandharpur", group: "Routes" },
   { href: "/solapur-to-gangapur-taxi", label: "Solapur to Gangapur", group: "Routes" },
+  { href: "/solapur-pilgrimage-tours", label: "Pilgrimage tours from Solapur", group: "Trips" },
   { href: "/packages/akkalkot-gangapur-one-day", label: "Akkalkot and Gangapur, 1 day", group: "Trips" },
   { href: "/packages/tuljapur-pandharpur-one-day", label: "Tuljapur and Pandharpur, 1 day", group: "Trips" },
   { href: "/packages/four-temple-two-day-circuit", label: "Four-temple circuit, 2 days", group: "Trips" },
@@ -42,6 +44,7 @@ export const SITE_PAGES: SitePage[] = [
   { href: "/guides/which-car-for-your-group", label: "Which car for your group", group: "Guides" },
   { href: "/guides/akkalkot-swami-samarth-darshan-guide", label: "Akkalkot darshan guide", group: "Guides" },
   { href: "/guides/pandharpur-wari-travel-tips", label: "Pandharpur wari travel tips", group: "Guides" },
+  { href: "/guides/places-near-solapur-within-100-km", label: "Places near Solapur within 100 km", group: "Guides" },
 ];
 
 // Google Ads tag. Leave ADS_ID empty until the owner's account gives the ID (format "AW-1234567890").
