@@ -87,6 +87,9 @@ export const routes: RouteInfo[] = [
       { q: "Can I visit Akkalkot and Gangapur in one day?", a: "We offer an Akkalkot and Gangapur one-day package from Solapur. We confirm the plan and quote for your date when you enquire." },
       { q: "Is the driver included?", a: "Yes. Every car we offer comes with a driver." },
       { q: "Do you publish fixed prices for Akkalkot?", a: "No. The quote depends on the date, group size and plan, so we confirm it directly by call or WhatsApp." },
+      { q: "Which car should I choose for Akkalkot darshan with elders?", a: "Families with elders usually choose the Ertiga or the Toyota Innova Crysta. Two or three people can go in the Swift Dzire, and for a bigger group you can ask about the Cruiser. We confirm seating for the car you are offered." },
+      { q: "Is Akkalkot on the way to Gangapur?", a: "Akkalkot is the closest stop to Solapur and sits on the way toward the Karnataka side of the circuit, so the Akkalkot stop comes first and the longer run to Gangapur follows. Ask us for the one-day plan if you want both." },
+      { q: "What should I tell you when I book an Akkalkot taxi?", a: "Your travel date, pickup point in Solapur, group size and whether elders are travelling, whether you want Akkalkot alone or with Gangapur, and whether you return the same day or stay overnight. Call or WhatsApp +91 95116 00787 and we confirm the quote directly." },
     ],
   },
   {
