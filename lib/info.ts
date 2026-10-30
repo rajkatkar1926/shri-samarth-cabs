@@ -118,7 +118,7 @@ export const infoPages: InfoPage[] = [
     description: "Choose between the Swift Dzire, Ertiga, Toyota Innova Crysta and Cruiser for a family pilgrimage trip from Solapur. A plain guide by group size.",
     h1: "Which car is right for your group?",
     eyebrow: "Car guide",
-    lead: "The right car depends on how many people are travelling, who they are and how long the day is. This guide goes through the four cars we offer, all with a driver, and who each one suits.",
+    lead: "The right car depends on how many people are travelling, who they are and how long the day is. This guide goes through the cars we offer, all with a driver, and who each one suits.",
     sections: [
       { h2: "Start with the group", paras: ["Count everyone who will sit in the car, including children, and think about whether any senior members need extra space or easy seating. Then think about luggage. For a one-day temple trip you may carry little. For a two-day circuit you will carry more.", "The seat counts here are the usual ones for each type of car. We confirm the exact seating of the car on your date when you enquire."] },
       { h2: "A couple or a small family: Swift Dzire", paras: ["A compact sedan that usually seats up to 4 passengers. It suits two to four people with light luggage and works well for the nearer stops, such as Tuljapur and Akkalkot."] },
@@ -126,7 +126,7 @@ export const infoPages: InfoPage[] = [
       { h2: "A longer day or senior members: Toyota Innova Crysta", paras: ["A roomy people carrier that usually seats up to 7 passengers. Families often choose it for the longer Gangapur day or the two-day circuit, because the extra space makes a long drive easier."] },
       { h2: "A larger group: Cruiser", paras: ["A larger group vehicle. Seating is confirmed directly for your date. It suits a bigger group, a joint family or an outing that would otherwise need more than one car. If your group is large, ask us about the Cruiser, or whether two cars would suit you better."] },
       { h2: "Matching the car to the trip", list: ["Tuljapur or Akkalkot only: a shorter trip, so the Swift Dzire works for small groups.", "Tuljapur and Pandharpur in a day: the Ertiga or the Toyota Innova Crysta if elders are travelling.", "Akkalkot and Gangapur in a day: a longer drive, so many families prefer the Toyota Innova Crysta.", "Two-day circuit: choose for comfort and luggage, and tell us about any overnight needs."] },
-      { h2: "Not sure? Ask us", paras: ["Tell us your group size, your date and the trip you have in mind, and we suggest a car. Every car comes with a driver, and we confirm the quote directly."], links: [{ href: "/cars", label: "See all four cars" }, { href: "/guides/solapur-temple-trip-planning", label: "How to plan a Solapur temple trip" }, { href: "/faq", label: "Common questions" }] },
+      { h2: "Not sure? Ask us", paras: ["Tell us your group size, your date and the trip you have in mind, and we suggest a car. Every car comes with a driver, and we confirm the quote directly."], links: [{ href: "/cars", label: "See all our cars" }, { href: "/guides/solapur-temple-trip-planning", label: "How to plan a Solapur temple trip" }, { href: "/faq", label: "Common questions" }] },
     ],
   },
   {
