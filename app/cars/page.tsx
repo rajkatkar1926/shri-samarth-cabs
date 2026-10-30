@@ -4,8 +4,8 @@ import Link from "next/link";
 import { Breadcrumb, Cta, FaqList, PageShell } from "@/components/site/PageShell";
 import { waLink } from "@/lib/site";
 
-const title = "Cars with Driver in Solapur | Shri Samarth Cabs";
-const description = "Swift Dzire, Ertiga, Toyota Innova Crysta, Cruiser, Tempo Traveller and Urbania with a driver from Solapur. Call or WhatsApp Shri Samarth Cabs to pick the right car.";
+const title = "Car Rental in Solapur with Driver | Shri Samarth Cabs";
+const description = "Car rental in Solapur with a driver: Swift Dzire, Ertiga, Innova Crysta, Cruiser, Tempo Traveller and Urbania. Call or WhatsApp Shri Samarth Cabs for a direct quote.";
 
 export const metadata: Metadata = {
   title,
@@ -24,6 +24,8 @@ const cars = [
 ];
 
 const faqs = [
+  { q: "Do you offer car rental in Solapur?", a: "Yes. Shri Samarth Cabs is based in Solapur and offers car rental with a driver: the Swift Dzire, Ertiga, Toyota Innova Crysta, Cruiser, Tempo Traveller and Urbania." },
+  { q: "How do I book a car rental in Solapur?", a: "Call or WhatsApp +91 95116 00787 with your date, pickup point, group size and the trip you have in mind. We confirm the car and the quote directly." },
   { q: "Is the driver included with every car?", a: "Yes. Every car we offer comes with a driver." },
   { q: "How do I know the exact seating?", a: "The seat counts on this page are the usual ones for each type of car. We confirm the exact seating of the car on your date when you enquire." },
   { q: "Can I choose the car?", a: "Yes. Tell us your preferred car, or your group size, and we suggest one." },
@@ -37,8 +39,8 @@ export default function CarsPage() {
         <div className="pg-hero-copy">
           <Breadcrumb trail={[{ name: "Cars", path: "/cars" }]} />
           <p className="eyebrow">Car hire with a driver</p>
-          <h1>Cars with a driver in Solapur</h1>
-          <p className="pg-lead">Shri Samarth Cabs offers six vehicles with a driver for temple trips and outstation travel from Solapur: the Swift Dzire, the Ertiga, the Toyota Innova Crysta, the Cruiser, the Tempo Traveller and the Urbania. Tell us your group size and date, and we confirm the right car and your quote directly.</p>
+          <h1>Car rental in Solapur with a driver</h1>
+          <p className="pg-lead">Looking for car rental in Solapur? Shri Samarth Cabs offers six vehicles with a driver for temple trips and outstation travel from Solapur: the Swift Dzire, the Ertiga, the Toyota Innova Crysta, the Cruiser, the Tempo Traveller and the Urbania. Tell us your group size and date, and we confirm the right car and your quote directly.</p>
           <Cta />
         </div>
       </section>
