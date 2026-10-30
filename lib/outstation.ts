@@ -31,6 +31,7 @@ const outRoutes = [
   { href: "/solapur-to-latur-taxi", label: "Solapur to Latur taxi" },
   { href: "/solapur-to-dharashiv-taxi", label: "Solapur to Dharashiv taxi" },
   { href: "/solapur-to-sangli-miraj-taxi", label: "Solapur to Sangli and Miraj taxi" },
+  { href: "/solapur-to-satara-taxi", label: "Solapur to Satara taxi" },
   { href: "/solapur-to-bengaluru-taxi", label: "Solapur to Bengaluru taxi" },
   { href: "/solapur-outstation-taxi", label: "All Solapur outstation routes" },
 ];
@@ -516,6 +517,42 @@ export const outstationPages: OutstationInfo[] = [
     ],
     related: [
       ...others("solapur-to-sangli-miraj-taxi"),
+    ],
+  },
+  {
+    slug: "solapur-to-satara-taxi",
+    crumb: "Solapur to Satara taxi",
+    title: "Solapur to Satara Taxi | Cab with Driver | Shri Samarth Cabs",
+    description: "Taxi from Solapur to Satara with a driver. Call Shri Samarth Cabs and we confirm the route and quote.",
+    eyebrow: "Taxi from Solapur to Satara",
+    h1: "Solapur to Satara taxi with a driver",
+    lead: "From your door in Solapur to Satara and back, with a driver. Call with your date and we confirm the car and the quote before you travel.",
+    facts: [
+      { big: "About 219 km", small: "Google Maps estimate" },
+      { big: "Driver included", small: "on every car" },
+      { big: "Quote on call", small: "confirmed before you go" },
+    ],
+    image: "/fleet/Ertiga.webp",
+    imageAlt: "Ertiga cab for Solapur to Satara trips",
+    sections: [
+      { h2: "The road from Solapur to Satara", paras: ["Satara is about 219 km from Solapur by the Google Maps route we use, and Google Maps shows a little over four hours of driving. Google Maps also flags tolls on the recommended route. Google Maps may offer other routes of similar length, so tell us your pickup point and we plan the trip around it."] },
+      { h2: "Who books this trip", list: ["Families visiting relatives in Satara", "Business and job travellers", "Travellers continuing on to Pune, Sangli or Kolhapur"] },
+      { h2: "Which car for Satara", paras: carsParas },
+      { h2: "Stops on the way", paras: ["If you want to stop at Pandharpur or another place along the way, say so when you call. A stop changes the time and the quote, so we settle it before you leave."] },
+      { h2: "What to tell us when you call", list: commonEnquire },
+    ],
+    mapsUrl: googleMapsRoute("Satara, Maharashtra"),
+    mapsLabel: "Open the Google Maps driving route to Satara",
+    waExtra: "Destination: Satara",
+    faqs: [
+      { q: "How far is Satara from Solapur?", a: "About 219 km by the Google Maps route we use from central Solapur. The distance changes with your pickup point and the route." },
+      { q: "How long does the drive take?", a: "Google Maps shows a little over four hours without long stops. Traffic and stops change this." },
+      { q: "Can I add a stop on the way?", a: "Yes. Tell us the stops and we confirm the time and the quote." },
+      { q: "Is the driver included?", a: "Yes. Every car goes with a driver." },
+      { q: "How do I get the fare?", a: "Call or WhatsApp. We confirm the quote for your date and car. We do not publish fixed fares." },
+    ],
+    related: [
+      ...others("solapur-to-satara-taxi"),
     ],
   },
   {
