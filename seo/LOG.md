@@ -57,3 +57,12 @@
 - 2026-10-30 (Raj: "build all remaining pages"): branch seo/2026-10-30-new-pages-2, built 3 pages from competitor-map queue using only our own measured facts: /solapur-to-satara-taxi (219 km, 4h25 by Google Maps, tolls flagged, read in browser today), /solapur-pilgrimage-tours (hub linking all temple routes, trips, guides), /guides/places-near-solapur-within-100-km (distances already on our pages). Added to footer/menu + sitemap (33 pages). Build passes, FAQ markup present, old number absent. NOT pushed/merged, awaiting Raj yes.
 - NOT built (facts unverified, no invention): taxi fare explainer (needs Raj's fare rules), Pune-Solapur highway guide (tolls), Solapur to Shirdi by car/bus/train, Ola/Uber in Solapur, temple timings, Kartiki Ekadashi / Datta Jayanti 2026 posts (dates from official sources only).
 - 2026-10-30: PR 9 merged, deployed by hand, live check OK (satara 200, pilgrimage hub 200, places guide 200, sitemap 33 URLs). Search Console: Request indexing sent and confirmed for /solapur-to-satara-taxi, /solapur-pilgrimage-tours, /guides/places-near-solapur-within-100-km (all were "URL is unknown to Google"). Sitemap not resubmitted by hand (already on file; Google re-reads). Recheck indexing in 7 days.
+
+## 2026-11-04 - Week-1 index check (automated)
+- NOT RUN: Search Console in the built-in browser is signed out (Google sign-in page shown). No data collected, nothing changed.
+- Next: Raj signs in to Search Console in the browser pane, then re-run this check.
+
+## 2026-11-07 (Sat, rank + report, automated)
+- Live health, all 33 sitemap pages: 200, old number 97637 absent.
+- Search Console in built-in browser still signed out (about page shown): rank/impression data NOT collected; indexing recheck of 30 Oct pages NOT done. Maps listing/rank check and listings check not run (needs sign-in / not done this session).
+- Raj feedback today: pages too short, want deep detailed guidance. Wrote seo/DEPTH-PLAN.md (page standard, facts needed, upgrade order). No site content changed (deep pages need Raj's fare/toll/seat facts; nothing invented).
